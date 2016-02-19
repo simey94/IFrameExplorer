@@ -1,0 +1,22 @@
+{
+  "name": "IFrame Explorer",
+  "description": "Replaces IFrame content with id and src of IFrame object",
+  "version": "2.0",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+   "content_scripts": [ {
+    "js": ["jquery.js","highlight.js"],
+    "matches": [ "http://*/*", "https://*/*"]
+  }],
+  "browser_action": {
+    "default_title": "Expose IFrame attributes"
+  },
+  "manifest_version": 2
+}
