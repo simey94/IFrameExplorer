@@ -1,0 +1,503 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[colorinlistoftodos]{todonotes}
+
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{float,subcaption, geometry}
+\usepackage[rightcaption]{sidecap}
+\usepackage[export]{adjustbox}
+
+% references
+\usepackage[
+backend=biber,
+style=alphabetic,
+citestyle=authoryear-comp 
+]{biblatex}
+ 
+\addbibresource{cs4099_bib.bib}     %imports bib file
+
+% hyper ref
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+% header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Michael Sime}
+\lhead{CS40999 Senior Honour Project}
+\cfoot{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \Huge \bfseries An Analysis of the Mechanisms and Techniques used in web-based Targeted Advertising}\\
+\HRule \\[1.5cm]
+
+
+%----------------------------------------------------------------------------------------
+%	LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+\adjincludegraphics[height=10cm,trim={0 {.1\width} 0 {.25\width}},clip]{university_logo.png}\\
+ 
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\Large CS4099: Senior Honours Project}\\[1cm]
+
+%----------------------------------------------------------------------------------------
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Michael \textsc{Sime} % Your name
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+Colin \textsc{Allison} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[1.5cm]
+
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+\textsc{\Medium Date of submission: April 4 2016}\\[2cm] 
+
+\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\pagestyle{plain}
+\begin{abstract}
+The innovation of the world wide web has spawned  completely new forms of marketing and advertising. The most prevalent and insidious of these  is targeted advertising. The contemporary network of entities that interact to profile and track individuals and  bid for and place adverts within a website in real time is complex and lacks transparency. This project will  delve into the mechanisms and techniques used by organisations to i) profile individuals; ii) identify them when they are web browsing; iii) create and display targeted adverts to users in real time. It will also i) evaluate methodologies and tools designed to reduce the effectiveness of such advertising; ii) independently validate the background traffic associated with tracking; iii) create a framework of tools and methods to help improve the transparency of web tracking and profiling to the end user; iv) investigate the possibility for detecting digital advertising fraud through an app or plug-in.  
+\end{abstract}
+
+\section{Declaration}
+I declare that the material submitted for assessment is my own work except where credit is explicitly
+given to others by citation or acknowledgement. This work was performed during the current academic year
+except where otherwise stated. The main text of this project report is NN,NNN* words long,
+including project specification and plan. In submitting this project report to the University of St
+Andrews, I give permission for it to be made available for use in accordance with the regulations of the
+University Library. I also give permission for the title and abstract to be published and for copies of the report to be made and supplied at cost to any bona fide library or research worker, and to be made available on the World Wide Web. I retain the copyright in this work.
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\pagestyle{fancy}
+\section{Introduction}
+Online advertising has been around since the beginning of the World Wide Web. The first clickable advert, which was later defined as a banner ad, was sold on the web by Global Network Navigator in 1993 to Heller, Ehrman, White, \& McAuliffe a law practice in Silicon Valley \parencite{oreilly}. The first mass production of advertising was implemented by \textit{HotWired.com} (now called Wired) which sold a large number of banner ads to corporate advertisers \parencite{firstAd}. These organisations where at the cutting edge of advertising which then spawned into the complex ecosystem that online advertising is today. \\
+
+Online advertising is an increasingly broad category which takes up a large percentage of advertising budgets worldwide the forecasts of Satistia (2013) state that digital advertising increased to about 121 billion dollars in 2013 and is expected to double by 2018. The Federal Trade Commission (FTC) defines targeted advertising as ``the practice of tracking an individual’s online activities in order to deliver advertising tailored to the individual’s interests'' \parencite{comission2009}. Previous studies have stressed the privacy concerns about targeted adverting (Yang, et al., 2015) and analysed the effectiveness of targeted advertising (Brahim, et al., 2011). However, this paper will focus upon the techniques used by  advertisers to create targeted and tailored online behavioural advertising. \\
+
+There are numerous techniques used by advertising organisations to gain personal information of users for the purpose of targeted advertising, this paper will look to explore the various techniques and discuss how a user can increase their online privacy. 
+
+\section{Context Survey}
+
+\section{The Tools and Methods of the Trackers}
+
+% TODO: brief intro
+
+\subsection {Cookies} \label{cookies}
+A cookie can be defined as a triple (domain,key,value) that is stored in the browser across page visits, where the domain is a particular website and the key and value are opaque identifiers \parencite{roesner}. The cookie mechanism adds state to the otherwise stateless HTTP protocol, as the cookies allow a web server to store a small amount of data on the computers of the visiting users which is then sent back to the web server upon subsequent requests \parencite{cookielessMonster}. The information contained in the cookie could be about the user's previous browsing activity such as, logging in, clicking particular buttons and visiting sites they have previously visited or it could contain stateful information for example what items they added to their shopping cart. Although the most controversial of cookies are those that are utilised to manage the advertising on a website, these cookies can be set from a separate advertising delivery company. This cookie can record when and where you saw an advert and whether you chose to click through the advert to purchase the product. This information will then be returned to the cookie owner who records the data and will use that to inform behavioural targeting for future adverts placed in front of a user.  \newline 
+
+There are two types of cookies \textit{first-party} and \textit{third-party}. First-party cookies are set by the domain that the user visits directly, i.e. the domain in the address bar, for example, if a user visits www.google.com then cookies that are set with the domain of www.google.com are first party cookies. Third-party cookies are set by a different domain than the one the user visits, they are embedded in the top-level page, for example if a visitor visits www.amazon.com and the domain of the cookies added are www.google.com then these cookies are third-party cookies. \newline
+
+There are numerous ways cookies can get to a webpage. Traditionally cookies were set by using an HTTP response that included a Set-cookie header, however cookies can appear in a browser in a numerous more subtle methods now. They can be set either by Javascript scripts running in the page or by using an API call from within a plug-in. Cookies are one of the simplest yet most effective ways to gain information about a user which can then be used for behavioural targeted advertising, or to build a profile about a user to place them in an audience segment. As the information in the cookie is constantly evolving dynamically with user actions it is very effective for trackers to place a cookie within a user's browser. 
+
+% TODO: research this
+\subsection{Supercookies} \label{Supercookies}
+The term Supercookie is used to refer to methods used to uniquely identify users that do not rely on HTTP cookies. A supercookie generally refers to a means of storing something unique from a website on a user's computer so that it can be retrieved the next time the user visits that website. The name is rather misleading as these methods of tracking aren't technically cookies as they are not placed on a user's computer via the HTTP protocol. There are approximately 13 different supercookie storage methods, the most prevalent is ``Flash cookies". \newline 
+
+The Local Shared Objects (LSOs) found within the Flash plugin are used to provide Flash applications with the ability to save options to the local system, for example, to save progress in a game. But as there is not a distinction between good and bad usage of this mechanism many websites have began to save persistent information on the user system as an alternative to third-party HTTP cookies. The output from this exploit is referred to as a ``Flash cookie" as a tracking organisation could use this method to place a uniquely identifiable data directly to a user's computer. Flash cookies are still a frequently used resource in the domain of tracking as a user cannot access them easily from within the browser. Flash cookies are not located with other HTTP cookies, easily accessible from a cookie manager in the browser, nor are they present in databases or other browser-specific storage locations \parencite{flashCookies}. A user must also travel to the Adobe Flash Player Settings Manager webpage (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html}) to manage or delete Flash cookies and update their related settings, which is both unintuitive and poorly documented. Therefore users who have cleared their HTTP cookies may think they are no longer being tracking, however websites utilising LSOs will still be able to track them. This process is not transparent to the user meaning that they can be unaware they are still being tracked. Another reason, why they are potentially favoured in a tracking context is that traditional HTTP cookies are limited in size to 4 Kilobytes of data whereas Flash cookies can be utilised to store up to 100 Kilobytes \parencite{flashCookies}. The larger storage capacity and difficulty in removing Flash cookies makes them an effective means of tracking even a privacy conscious user. Although the evolution of HTML5 has limited the appeal of Adobe's browser plugin Flash it still commands usage on 9.3\% of Internet sites whilst this is a far cry from 2010 where 28.5\% of global Internet sites used the plguin \parencite{flashStats}. Adobe reports that there are ``more than 500 million devices are addressable today with Flash technology, and it is projected there will be over 1 billion addressable devices by the end of 2015" \parencite{adobeFlash}. These statistics illustrate that although adoption rates of Flash may be slowing the Flash cookie method of tracking is still relevant and could be used to profile a huge number of users, most of which would be largely unaware they were being tracked. \newline 
+
+% TODO: add more?
+\subsection{Evercookies}
+An evercookie is a resilient tracking mechanisms that uses multiple storage vectors including Flash cookies, localStorage, sessionStorage and ETags \parencite{evercookies}. Evercookies use this information to identify a client even after they've removed standard cookies. This is similar to the ``respawning" of cookies shown in \parencite{flashCookiesPrivacy} which illustrated the abuse of Flash cookies for regenerating previously removed HTTP cookies. The rationale behind evercookie API is to make stateful methods of tracking persistent. By storing the same data in a multitude of storage locations, if any tracking information is lost or removed it can simply be recovered from another storage location and then continue to be used for tracking purposes. At the time of writing this paper the evercookie API uses 13 different storage vectors to accomplish its persistence,  \parencite{evercookies}. Evercookies, are sometimes referred to as \textit{Zombie Cookies} due to the fact they are automatically re-created (respawned) from a backup outside the web browsers traditional cookie storage. Evercookies take advantage of a number of Supercookie techniques discussed in Section \ref{Supercookies} to restore the cookies. \newline
+
+This abuse of the cookie platform is one of the biggest privacy concern for any Internet user, as these forms of stateful storage actively circumvent user's deliberate attempts to start with a fresh profile. As users have to be more than aware to remove all forms of tracking techniques, otherwise the methods previously can simply be respawned from any surviving storage. 
+
+\subsection{Cookie Syncing}
+Cookie synchronization or cookie syncing is the process of tracker domains sharing pseudonymous IDs associated with a given user, typically stored in cookies \parencite{webNeverForgets}. This passing of IDs can occur for example when domain A makes a request to a URL hosted by domain B with the pseudonymous ID as parameter within the request. This can be advantageous for organisations as it provides a means for domains to share cookie values and thus the different domains should be able to utilise the information in the cookie to better target adverts to a user's preferences. Observed cookie syncing is indicative of business relationships.  One of the earliest studies of cookie syncing found over 100 syncing events happen on the top 100 Alexa sites \parencite{sellingPrivacy}. A slightly larger scale study was conducted by \parencite{webNeverForgets} and its results can be seen in Figure \ref{fig:cookieSynching}, which were generated from multiple crawls of the top 3,000 Alexa domains. 
+
+These results show that cookie syncing is prevalent upon some of the most visited and trusted sites on the Internet, which would indicate it could ubiquitous across the Internet. The main incentive for trackers to share cookies is the ability to merge databases on the backend based upon the synced IDs. This form of sharing and merging allows trackers to aggregate data in order to obtain a larger fraction of a user's browsing history. As this backend merging occurs behind the closed doors of organisations there is a lack of transparency and information of how prevalent the technique is.  However, the financial and mutual benefits for organisations to share tracking information across the ecosystem are significant. As reported by \parencite{webNeverForgets}  101 domains could construct 50\% of a user's browsing history with third-party cookies enabled, this increase in ability to recreate a user's history could have large effects both on user privacy and targeted advertising effectiveness. \newline
+
+The most concerning area of cookie syncing is that it is extremely difficult to block. There are not any tools specifically designed to combat cookie syncing, however a brute force approach would be to block third-party cookie placement and HTTP traffic \parencite{webNeverForgets}, although this lacks practicality. 
+
+% Web Beacons aka Pixel Dropping
+\subsection{Web Beacons}
+A further technique used to track users in a transparent manner is the use of Web Beacons sometimes referred to as ``pixel dropping". The premise of this method is that when a user visits a webpage this site includes an object, which is used to unobtrusively and normally invisibly check whether the user has accessed the content. The common use case for this method of tracking is in web analytics and email tracking. For example, a web beacon can take the form of an invisible 1x1 pixel in which case it may be referred to as \textit{Pixel Tag}, although the form the beacon takes is largely irrelevant as the pixel can also be replaced with a script block, the beacon would then be referred to as \textit{Javascript tag}. This transparent GIF or PNG image can be embedded into an HTML page, whenever a user navigates to a page containing graphics the image is downloaded. This download requires the browser to a send a request to the server storing the image, allowing the organisation running that server to keep track of the HTML page \parencite{webBeacons}. This therefore allows for third party sites to gather information about visitors when they pull HTML content from the main site. These sites can then in turn track (a section of) the browsing habits of a significant share of web users. Normally advertisements, banners and social media buttons are fetched from their origin site, not from the main site, therefore organisations such as Google, Facebook and Twitter can potentially view and utilise the browsing habits of a large proportion of Internet users and as these organisations' products are used ubiquitously across the Internet, their assets will appear on many websites meaning they can generate a much larger section of a user's browsing history.   Web beacons can be used in conjunction with HTTP to ensure that a cookie is downloaded and as most beacons are invisible to the user, the user may have unconsciously downloaded a wealth of third-party cookies simply from visiting one webpage. \newline
+
+% invisible to user so privacy at risk
+These beacons are usually invisible to users, therefore they present a serious privacy risk, as users could be completely unaware that they are being tracked. However, there is a defence to this the Ghostery browser extension analyses Javascript to detect trackers, pixels and beacons and can be used to block them. 
+    
+\subsection{Fingerprinting} \label{fingerprinting}
+Another method available to trackers is device fingerprinting, which aims to identify web users by tracking and collecting their information without the help of cookies. Benign characteristics of a browser's environment like the screen dimensions and list of installed fonts, can be combined to create a unique device-specific finger print, analogous to a human biological fingerprint \parencite{uniqueBrowser}. Fingerprinting systems use attributes that take more diverse values (e.g. the list of fonts) as they are more identifying than values shared by many devices such as user-agent. Furthermore, values which are stable over time facilitate identification compared to those that frequently and unpredictably change \parencite{dustingFP}. Similarly to cookie syncing, this form of identification of users for tracking purposes is both hard to detect and prevent as the fingerprinting mechanism is not transparent to web users and there are few tools available for users to block it \parencite{uniqueBrowser}. Moreover, device fingerprinting allows trackers and advertisers to obtain user information even when  users have taken actions to block cookies. This is a potentially serious privacy concern for users, as the stateless nature of fingerprinting makes it hard to detect as there are no cookies to inspect and delete, thus it is even harder to opt-out from. The general unavailability of cookies motivated advertisers and trackers to find new ways of linking users to their browsing histories and as all browsers fail to completely hide the user's true identity, fingerprinting has become an effective weapon in a trackers arsenal. \newline 
+
+There are a number of ways to obtain a device fingerprint, this report will not discuss all of them, it will however detail the most prevalent. A sample of features which can be used to uniquely identify a user can be seen in Figure \ref{fig:fingerprintingTax}. Detection of fonts can be one of the most counterintuitively reliable methods to identify a user. Firstly font detection can be carried out by \textit{plugin-based detection} in which APIs within \textit{ActionScript} - the scripting language of the Adobe Flash plugin - are utilised for discovering the list of fonts installed on a system. \textit{Side-channel inference} can also be used for font detection, in which Javascript is taken advantage of to detect the availability of fonts then deduce the height and width of the fonts comparing this to the predefined standard. Font rendering in web browsers can be affected by a multitude of factors for example - browser version, what fonts are installed and anti-aliasing settings - all of which are sources of fingerprintable variation of an end user, which in combination can lead to a uniquely identifiable fingerprint of that user \parencite{fingerprintFonts}. Another method frequently used by fingerprinters is too extract information about a user from the browser extensions they have installed. Contemporary browsers are designed in such a way that extensions to the core code base can be added at any time, therefore many people create extensions for browsers to add new functionality or remove undesired functionality. Whilst plugins can be detected via Javascript, extensions cannot be identified by the scripting language, they must be detected by their side effects \parencite{dustingFP}. Paradoxically user-agent spoofing extensions which are meant to hide the identity of a user, were shown to actually make a user more identifiable due to inconsistencies in the browsing environment, which in turn made the browsing fingerprint more unique, thus more identifiable  \parencite{cookielessMonster}.
+
+% Discussion of Fingerprinting Papers
+Fingerprinting has been proven to be extremely effective in uniquely identifying users without the need for cookies or other mechanisms stored within the browser. Numerous studies have shown how powerful a tool fingerprinting is, it was shown that with Flash or Java enabled 94.2\% of browsers were uniquely identifiable \parencite{uniqueBrowser}. Furthermore, this study showed that even privacy-conscious users were easy to identify as 83.6\% of browsers in this sample had an instantaneously unique fingerprint, in terms of global uniqueness this figure was identical of 83.6\% of browsers being uniquely identifiable \parencite{uniqueBrowser}. While fingerprints changed quickly, a simple matching algorithm was able to associate new and old fingerprints with over 99\% precision \parencite{uniqueBrowser}. Mayer also illustrated in a study of 1328 web clients that by hashing the concatenated contents of numerous Javascript objects that 96\% were uniquely identifiable \parencite{mayer09}. \\ 
+
+\subsection{Fingerprinting as an industry}
+% Fingerprinting as an industry (professional services)
+Fingerprinting was first explored by Eckersley \parencite{uniqueBrowser} to illustrate the principle of a browser fingerprint which could be utilised to identify users without the need of client-side stateful identifiers. Fingerprinting services are now a commercial commodity with a number of organisations offering fingerprinting libraries such as BlueCava, Iovation and ThreatMetrix. These organisations facilitate fingerprinting services to be provided to a website through the inclusion of third-party scripts. Although in the Panopticlick study \parencite{uniqueBrowser} and Mayer's experiment \parencite{mayer09} there was a 1-to-1 relationship between the page conducting the fingerprinting and the backend storage of results, in commercial fingerprinting this is a N-to-1 relationship as the organisation provides fingerprinting services to multiple websites \parencite{cookielessMonster}. Whilst the majority of these organisations offer their services in an anti-fraud scenario, the information these libraries provide could also be used to circumvent user's privacy. \\
+
+% Prevalent in sites
+\subsection{How prevalent is fingerprinting?}
+There have also been numerous studies which detail the prevalence of fingerprinting in the wild. Firstly, it was shown that out of the top one million Alexa sites 404 had font-probing Javascript based fingerprinting on their home page \parencite{dustingFP}. This experiment also showed that in the top 100,000 Alexa sites that 51 employed font probing scripts on their homepages and some within inner pages \parencite{dustingFP}. A further experiment that crawled up to 20 pages for each of the Alexa top 10,000 sites discovered that 40 sites (0.4\% of the 10,000 crawled) were utilising fingerprinting code from BlueCava, Iovation and ThreatMetrix \parencite{cookielessMonster}. Whilst the results of the second survey may seem low, it illustrates that fingerprinting is prevalent on some of the most popular and trusted websites of the Internet, therefore hundreds of thousands of visitors to these sites are fingerprinted on a daily basis \parencite{cookielessMonster} showing how frequently fingerprinting as a service occurs.  \\ 
+
+% Usage
+\subsection{Usage of fingerprinting}
+Whilst fingerprinting can be seen as a privacy invasive approach to gaining information about web users, it also has a number of usages for preventing fraud. For example, a first party web page may not be involved in the fingerprinting process. The code could be delivered by an advertising company and resulting fingerprint sent back to the fingerprinting company. This is most likely used to combat click-fraud \parencite{cookielessMonster}. Another scenario is where the first-party site requests the fingerprint. For example, it was shown in the study by Nikiforakis that the domain \textit{www.imvu.com} was using BlueCava for device fingerprinting when the BlueCava scripts (running remotely on BlueCava's servers) had combined all features of a user into a single fingerprint it was DES-encrypted concatenated with the encrypted keys and converted to Base64 encoding \parencite{cookielessMonster}. The resulting string was then placed in the DOM of \textit{www.imvu.com} as a new hidden element in the login form. Thus, when a user submits their username and password the fingerprint is also sent to IMVU's web server. Although, IMVU cannot decrypt the fingerprint it is therefore sent to BlueCava, which will then reply with a “trustworthiness” score and other device information. This architecture allows BlueCava to hide the implementation details from its clients and to correlate user profiles across its entire client-base \parencite{cookielessMonster}. Whilst this illustrates a use case for fingerprinting to combat fraud, the worrying amount of fingerprints that organisations such as BlueCava hold is certainly a privacy concern as most users will be unaware that they are being tracked in this way.  \\ 
+
+% Conclusion of fingerprinting
+In an ethical sense fingerprinting can be used constructively or destructively. The line between both of these usages is largely artificial, because the same technology is used in both cases \parencite{cookielessMonster}. Although it does allow companies to sidestep limitations imposed on tracking by the regulation of cookies in Europe and the USA \parencite{dustingFP}, fingerprinting does have some positive use cases for example it has been highlighted as an anti-fraud method as it can be used to measure the traffic of a website and prevent click fraud efficiently. What is truly concerning about fingerprinting, is that a large number of devices will have a unique fingerprint, therefore organisations will be able to uniquely identify and track users without their permission even when they opt out of other tracking mechanisms such as cookies. 
+
+% TODO: research this Canvas
+% Defences: adding random pixel noise whnever pixels are extracted
+\subsection{Canvas Fingerprinting}
+The HTML canvas element is used to draw graphics or animations on a web page utilising Javascript. As browsers have become increasingly more sophisticated in tandem with user demands, they have also been granted more access to the underlying operating system and hardware resources of the host computer. Thus, the browser behaviour is closely tied to that of the underlying resources of the machine it is running on \parencite{canvasFP}. It is this principle that Canvas Fingerprinting relies upon, that the same canvas image may be rendered differently by different computers. To obtain this fingerprint, a website renders text and WebGL items to a canvas element then examines the pixels produced, as different systems produce different output and therefore different fingerprints \parencite{canvasFP}. An early study of Canvas Fingerprinting showed that it is high-entropy as out of 294 experiments on Amazon's Mechanical Turk, 116 unique fingerprints were collected \parencite{canvasFP}. This study also showed that the technique is consistent as the same pixel value results were collected from independent trials from the same user \parencite{canvasFP}. Similarly to other forms of browser fingerprinting, canvas fingerprinting is invisible to the user, the tests can be conducted off-screen in a fraction of a second with no visual indication to the user and it is also available to use by any website that runs Javascript \parencite{canvasFP}. \\
+
+A number of defences against Canvas Fingerprinting have been considered, such as disabling all canvas pixel extraction, this would prevent any canvas based fingerprinting but this would in turn remove all capabilities and functionality of the canvas element, therefore this is not a viable option. A further method to combat canvas fingerprinting could be to request user approval whenever a canvas extraction is requested by the browser, this technique is already implemented with the HTML5 geolocation APIs. This would therefore disallow illegitimate use at the small cost of the user clicking a permission dialogue \parencite{canvasFP}. A number of plugins to block Canvas Fingerprinintg have also been created CanvasBlocker (\url{https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/} for Mozilla Firefox and CanvasFingerprintBlock (\url{https://chrome.google.com/webstore/detail/canvasfingerprintblock/ipmjngkmngdcdpmgmiebdmfbkcecdndc}) for Google Chrome, although their effectiveness has not been fully explored. \\  
+
+There is a significant trade-off to eliminating Canvas Fingerprinting, as browser performance and functionality may also degrade with a number of the measures that can be put in place to restrict this form of tracking \parencite{canvasFP}. The Tor browser has taken extreme steps to limit the ability of fingerprinting software by disabling WebGL although this does not effect the fingerprint obtained through font rendering. Although many privacy activists may continue to attempt to prevent users from being fingerprinted some researchers admit that it may be unavoidable on the modern Internet \parencite{canvasFP}.
+
+% TODO: research this
+\subsection{HTTP Strict Transport Security and Content Security Policy}
+Even privacy conscious users who have cleared their browsing history and deleted all saved cookies can still be tracked by fingerprinting methods, as detailed in Section \ref{fingerprinting}. However, one new exploit has been discovered which may become central to stateless tracking. A researcher utilised two un-patched flaws in modern browsers that would allow a web page owner to create a browsing history for a user, even after they have deleted their browsing history and create a form of tracking cookie, to give pseudonymous id to a user and which would persist even after they have deleted all cookies similar to a Supercookie \parencite{newTracking}. These two Browser Fingerprinting techniques abuse HTTP Strict Transport Security (HSTS) and Content Security Policy both of which were new security features already built into Mozilla Firefox and Google Chrome, it is expected that all major browsers will have these features in the near future. Yan Zhu, an independent security researcher showed how websites can abuse HSTS and Content Security Policy (CSP) to track even the most privacy conscious users. Despite the specification of HSTS defining a mechanism to enable web sites to declare themselves accessible only via secure connections by adding the Strict-Transport-Security HTTP response header field in an HTTP response \parencite{HSTS}. This mechanism may make a user more prone to forms of tracking than its intended security purposes. This exploit works as follows: 
+
+\begin{enumerate}
+    \item User visits the web page with the exploit script enabled
+    \item The browser attempts to load images from numerous HSTS domains over HTTP
+    \item The script sets a CSP that restricts images to HTTP, so images are blocked before they are redirected to HTTPS. 
+    \item When an image is blocked by the CSP, its Javascript \textit{onError} handler is called. The script then times how long it took for the image to be redirected from HTTP to HTTPS. If this time is on the order of a millisecond, it was an HSTS redirect (no network request was made), thus the user had visited that site before. Otherwise if it's in the order of 100 milliseconds then a network request was most likely occurred, meaning the user hasn't visited the image's domain \parencite{gitSniffly}. 
+\end{enumerate} 
+
+This method is a browser fingerprinting technique to efficiently identify sites a user has and has not visited.  \\
+
+\subsection{Certificate Pinning}
+A further exploit demonstrated by Zhu was an exploit in HTTP Public Key Pinning (HPKP). This is another security measure that has unwanted side effects. The HPKP extension to the HTTP header, allows a web host to instruct user agents to remember (``pin'') the hosts' cryptographic identifies over a period of time. This should help to reduce instance of man-in-the-middle attacks due to compromised Certification Authorities by reducing the number of trusted authorities who can authenticate the domain during the lifetime of the pin \parencite{HPKP}. Zhu demonstrated that the standard could be abused by pinning text that is unique to each user, then reading the text on each subsequent visit and using the unique text to act as a browser cookie to track the site history of a user \parencite{newTracking}. \\
+
+What these exploits highlight most is that there will always be some exploit available to track browsers. This was an independent researcher, conducting research in her free time. Users are simply at the mercy of browser vendors to fix potential bugs, or at the mercy of the people who find bugs to report them so they can be resolved rather than exploited. The future of tracking is these stateless methods, as the public become more conscious about tracking it may result in increased pressure on governments and standards organisations to implement restrictions, however a number of the fingerprinting and ``Supercookie'' techniques are not transparent and very hard to detect. Thus, restrictions on these forms of tracking may be impossible to enforce. 
+
+\section{Defences against Tracking}
+\subsection{Third Party Cookie Blocking}
+Blocking all cookies is uncommon as it could potentially infringe on the functionality of the web, however blocking third party cookies is recommended as the first line of defence against third-party tracking \parencite{roesner}. 
+
+\subsection{Do Not Track}
+The Do Not Track (DNT) header is an extension to the HTTP response which allows users to opt out of tracking websites, the extension is accompanied with a wealth of legislation that attempts to give users a standardised way to opt out of web tracking. DNT works by adding an extra HTTP header that is completely compatible with the existing web infrastructure. Whilst this idea is promising in theory a lack of commitment by governing bodies and enforcement by third party tracking companies has largely resulted in deadlock, as Do Not Track is largely unenforced in the wild. Many papers have cited this lack of enforcement as the main stumbling block for the effectiveness of this process, without a legal or technical requirement the tool will remain largely ineffective. \newline
+
+In contrast with the poor legal and technical support of DNT, people are increasingly worried that this header will create a divided web, as a large amount of free content on the Internet relies upon advertising revenue, there is a worry that people who choose to opt out of tracking by implementing the header may end up not receiving the same content as those who do not. Thus, creating a segregated web, in which the tracking agencies still sit in a position of power. 
+
+\subsection{Disabling Javascript}
+In the arsenal of defences against web tracking, the most powerful blunt force weapon a user has is to block the client side scripting language Javascript. This approach is extremely effective at preventing tracking behaviours that require API access to cookies to leak them. Although trackers can still set cookies via HTTP headers, ``Set-Cookie'', and as identified by \parencite{roesner} Behaviour C trackers can use HTML re-directs. Despite this being the most effective single defence available to users disabling Javascript renders much of today's web unusable due to the dynamic nature of web content and reliance upon Javascript. Therefore, making it an unusable solution for many users. 
+
+\subsection{Plugin based solutions}
+With the ever increasing amount of digital advertising and consequently tracking, there has been a large increase in web browser plugins created to help preserve the privacy of users. One of the most popular of these plugins is Ghostery, which monitors which web servers are being called from a particular web page and compares these to a pre-defined list of web servers, if you have configured Ghostery to block communication with this web server the communication will be interrupted. Whilst opting out from receiving targeted adverts or blocking cookies means that your browser is still communicating with the web server, the premise of Ghostery is that it blocks this communication entirely. Thus Ghostery aims to disable cookies, scripts and pixels used for tracking. The business model of the organisation that creates Ghostery is interesting, as it actually hopes to improve the effectiveness of targeted advertising by collecting anonymous data from users who have opted in to a program and selling this data with analysis back to the advertising company so that they can manage their relationships with marketing tools \parencite{ghostery}. There are numerous other plugins such as Blur and DoNotTrackMe which offer similar services as Ghostery. Ultimately, the plugin approach to improving privacy is flawed as although these plugins will decrease the effectiveness of stateful methods of tracking such as cookies, they consequently make a user more uniquely identifiable to fingerprinting and stateless based tracking mechanisms.
+
+% TODO: Research this
+\subsection{HTTPS Everywhere}
+HTTPS Everywhere is a browser extension created by the Electronic Frontier Foundation available for both Andriod Firefox mobile browser and both Chrome and Firefox desktop browsers \parencite{httpsEverywhere}. The premise of this extension is that many websites offer support for encryption of traffic over HTTPS, however they make it difficult to use, for example they may default to unencrypted HTTP. The HTTPS Everywhere extension algorithmically rewrites requests to these sites to utilise HTTPS when available. This extension will utilise HTTPS for all available sections of a web page, it is however not a silver bullet that will make an HTTPS connection exists where it is not supported. For example, if a web mail provider does not support HTTPs at all, the extension cannot secure this access \parencite{httpsEverywhere}. Furthermore, HTTPS Everywhere will only secure parts of the web page that support HTTPS, images and other unencrypted areas will still be delivered using HTTP. The extension can make sure all traffic is encrypted for sections of sites where HTTPS is possible. 
+
+This protects users from a number of threats such as, eavesdropping and tampering with a web page or the requests which you send from a ``man-in-the-middle" form of attack \parencite{httpsEverywhere}. This will ideally result in a reduction in the amount of information an attacker could intercept, as information, such as the text of your email or products purchased while online shopping, is encrypted. A limitation of HTTPS Everywhere is that it does not hide the identity of the webpages you have visited, the time you have spent on this site or the amount of data you have downloaded or uploaded to this page. ``For example, if you access http://www.eff.org/issues/nsa-spying and HTTPS Everywhere rewrites it to https://www.eff.org/issues/nsa-spying, an eavesdropper can still trivially recognize that you are accessing www.eff.org (but might not know which issue you are reading about). In general, the entire hostname part of the URL remains exposed to the eavesdropper because this must be sent repeatedly in unencrypted form while setting up the connection" \parencite{httpsEverywhere}.
+
+% TODO: LOL
+\subsection{How improve your web browsing privacy}
+In this section of the report I will discuss numerous simple and free methods to effectively protect your privacy. A detailed explanation of how to utilise these techniques will be given in Appendix \ref{appendixA}. 
+
+\begin{enumerate}
+    \item Change Cookie Settings: In most modern browsers it is possible to both disable third party cookies and to set cookies to expire once you close your browser. This will help to ensure that tracking identifiers are removed each time you close the browser. Although it is unlikely to fully protect a user from techniques such as Evercookies, it is a good start. 
+    \item Install a ``Ad Block Plus". There are numerous advert blocking extensions available for both mobile and desktop browsing however ``Ad Block Plus" has a series of constantly updated subscriptions both for adverts and privacy which make it one of the most effective privacy enhancing ad blockers. Once you have installed the extension ensure to add the EasyPrivacy list to the subscriptions (\url{https://easylist.adblockplus.org/en/}). This filter aims to removes all forms of tracking from the Internet which can thereby defend your personal data.
+    \item Install HTTPS Everywhere extension (\url{https://www.eff.org/https-everywhere}). Maximising the use of HTTPS will ensure that any private information shared between yourself and websites cannot be accessed or tampered with by a third party. 
+    \item Install an anti-tracking extension. There are numerous extensions available within this market all which offer a very similar functionality. Both PrivacyBadger (\url{https://www.eff.org/privacybadger}) and Ghostery (\url{https://www.ghostery.com/}) employ functionality to limit the effectiveness of third-party tracking. Whilst both extensions have similar performance it is there business models that differ. 
+\end{enumerate}
+
+\subsection{Defenseless}
+Ultimately, web tracking is inevitable there are a number of approaches which a user can use to improve their privacy and limit the effects of tracking, however the genie is largely out of the bottle. The numerous methods of tracking discussed in this report are simply the beginning, there is a myriad of tools available for trackers to utilise to collect user's information which cannot be stopped, for example browser fingerprinting. Unless there is significant pressure placed upon policy makers and standards organisations to implement stricter rules surrounding web tracking, then users will continue to be profiled in the manner they currently are. However, if legislation and standards are enforced to allow users to opt out of tracking, such as DNT, then user's privacy on the web may come before the revenues of advertising organisations.    
+
+\section{Requirements specification} \label{requirements}
+
+\subsection{Primary}
+The primary requirements for the project are detailed below:
+\begin{itemize}
+    \item Produce a browser plugin to expose the Source and ID properties of an IFrame advertisement.
+    \item Create clear documentation about the different entities and how they interact with one another during the targeted advertising process.
+    \item Create a centralised resource containing information about all areas of targeted advertising.
+    \item Provide a detailed account of the various methods of tracking and fingerprinting used to build profiles for targeted advertising.
+    \item Discuss in detail the methods used by companies to track and profile users. 
+\end{itemize}
+
+\subsection{Secondary}
+The secondary requirements for the project are detailed below:
+\begin{itemize}
+    \item Produce a browser plugin which details all IFrames on a page, including a count of the number of IFrames, search functionality, copy and pasting. 
+    \item Create a glossary of frequently used terms in the online advertising industry.
+    \item Discuss the effects of ``Ad blocking". 
+\end{itemize}
+
+\subsection{Tertiary}
+\begin{itemize}
+    \item Include a discussion of the various methods of advertising fraud.
+\end{itemize}
+
+\section{Ethics}
+Since this project does not use any personal or classified information and did not necessitate any experimental research involving human participants, this project does not raise any ethical concerns. 
+
+\section{Design}
+For the implementation section of this project, I had envisaged with the support of my supervisor and an industry expert to create a browser plugin which could be of use when exploring adverts displayed on a web-page.  \\
+
+The plugin would be used to detect advertising IFrames within a page and then overlay the HTML source of the IFrame object over the image of the advert. This idea can be seen below in a diagrammatic example in Figure \ref{fig:mockup}. 
+
+\begin{figure}[h]
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[scale=0.25]{siteWithAds.png}
+        \caption{The web page displaying the images of an advert}
+        \label{fig:siteWithAds}
+    \end{subfigure} \hspace{0.2\textwidth}
+    \begin{subfigure}{0.3\textwidth}
+        \includegraphics[scale=0.25]{siteWithAdSource.png}
+        \caption{The web page with the adverts source placed ontop of the advert}
+        \label{fig:siteWithAdSource}
+    \end{subfigure}
+    \caption{The effect of the plugin shown on a web page.}
+    \label{fig:mockup}
+\end{figure}
+
+I chose to develop the plugin for the Chrome browser, largely due to input from the industry expert as well as the usage statistics on web browsers that showed Google Chrome had the largest browser market share of 67.4\% in November 2015 \parencite{browserStats}. \\
+
+\subsection{Methodologies Utilised}
+Whilst this was an individual project it was not critical that I implemented traditional software engineering processes, however to ensure accountability throughout the process and that I met the requirements defined by both my supervisor and an external industry expert. I decided to utilise numerous techniques from professional software development ideologies. \\
+
+For general project management I created a Scrum Board which I used to delegate tasks relating to all areas of the development and reporting of the project. I split the project into three section ``TODO" which could be formalised as the product backlog, ``In Progress" which included all tasks I was currently working on and ``Done" which included all tasks completed within the project. An example of the board during development can be seen in Figure \ref{fig:Project_Board} This was a very useful tool throughout development as it allowed me to delegate my time as efficiently as possible, whilst ensuring that I had clear view on the goals and direction of the project for the entirety of the project. \\
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Project_Board.png}
+    \caption{A sample of the project board during development}
+    \label{fig:Project_Board}
+\end{figure}
+
+ % TODO: Get screen shot of the user stories
+Firstly during the requirements elicitation stage, I created numerous user stories from the perspective of a potential end user, this is in accordance with the Scrum methodology. I used the requirements defined in Section \ref{requirements} to form the basis of these stories whilst envisaging my supervisor and industry contact as potential clients that I was working for. I utilised the online task management platform \textit{Trello} to host my user stories and throughout the process I used the service to simulate my progression to achieving each story.
+
+\subsection{Version Control}
+To ensure I had a form of redundancy in case of a disaster scenario I used the distributed version control system Git to ensure the safety of my project's software. I used Git because I had a large amount of prior experience with the platform as I had used it throughout my university career but most specifically during the third year group project. I had considered using Mercurial, however I felt I was more accustom to Git and preferred it to Mercurial. I chose to manage my code base on a private GitHub repository, as Github offers the most informative and intuitive GUI for repository management. Although it could be argued that this was a risky decision, due to the fact that GitHub is a private company who could potentially remove their services at any time, whereas I could have used the schools Mercurial server. A vast majority of popular open source software is hosted on GitHub, for example the Linux Kernel, therefore the chances of this happening are very remote.  Also since Git is distributed by design if GitHub became unavailable, the local copy of the repository could easily be utilised to create a backup on another server, ensuring I never lose access to the code.
+
+\subsection{Architecture of IFrame Explorer}
+A Google chrome extension is a collection of files— HTML, CSS, JavaScript, JQuery, images, and anything else you need—that adds functionality to the Google Chrome browser. There are three different browser extension user interfaces, however the IFrame Explorer plugin makes use of the Browser Action interface, which allows a clickable icon to the right hand side of the address bar next to the menu bar which is represented as three horizontal bars. \\
+
+A valid Google chrome extension must have the following elements: A manifest file which is represented in JSON, one or more HTML files, optional components are JavaScript files and any other files that extension may make use of such as images. \\
+
+The manifest file,\textit{manifest.json}, is used to provide to information to Google Chrome about the extension. Attributes that the manifest will provide information on is the name of extension, which version the manifest refers to, a brief description of the extension and all optional files discussed previously. \\
+
+This extension produced for this project contains a background page called \textit{background.js}. This is an invisible page which is utilised to set an \textit{onClickListener} for the browser action icon. Once this icon is clicked the extension will execute a content script which is used to inject the JQuery script, \textit{jquery.js}, into the current tabs page, then in a call back from this the script, \textit{iframeExplorer.js}, containing the IFrame exploration logic is executed. Content scripts are requried to interact with web pages that the user loads (as opposed to pages that are included in the extension).
+
+\subsection{Architecture of Advert Explorer}
+The second Google chrome extension created for this practical is called Advert Explorer and it is utilised to provide all IFrame source within a page in centralised searchable and easy to use manner. When clicked upon the popup displayed will detail all of the IFrames on a web page, these can then be searched using the search bar and if any IFrames exist the list of them can be copied so that they can be utilisd in another program. \\
+
+This extension includes a background script again called \textit{background.js}. Which is utilised to persistently run in the background and handle the user initiated events such as the searching the IFrames within the page and copying the list by clicking the copy icon. \\
+
+% TODO: Screenshot of the Popup
+Within the extension package, a file \textit{popup.html} exists which is the HTML page rendered by the extension when the user clicks the browser action button. This page contains the the list of the IFrames within the page, the search bar and the copy icon. This can be seen below in Figure. \\ 
+When the browser action button is clicked, the popup web-page appears along with this, the script \textit{popup.js} is invoked. When the current tab's web-page has loaded, this script will execute a further section of JavaScript called \textit{getPageSource.js} which will return all of the IFrame objects within the current web-page, the popup script will then display this in a human readable manner. \\ 
+
+\section{Important Design Decisions}
+
+\subsection{Content Scripts}
+% Content Scripts
+The use of content scripts is crucial to the application as they facilitate the plugin to edit the current web page once it is loaded. By design content scripts run in the context of web pages loaded by the browser. Content scripts execute in a special environment called an ``isolated world". They have access to the DOM of the page they are injected into, but not to any JavaScript variables or functions created by the page. \\ 
+
+They facilitated my plugin to programmatically injection JavaScript into the browser loaded webpages, utilising the Google Chrome \textit{tabs.executeScript} API, I was then able to pragmatically inject a script which utilises JQuery CSS functionality to highlight all IFrame objects with a red border and then to execute a script which on the click of the Browser Action button, will replace the IFrame advert with the objects id and src (source) attributes.  \\
+
+% Security with content scripts
+This process of inserting scripts may sound like a potential security flaw and as extensions may carry personal sensitive information there is a mechanism in place to ensure the safety of this data for extension users. The structure of the web pages Document Object Model (DOM) is shared between all scripts active on the webpage, e.g. scripts that have been placed on the web page by the owner, along with any scripts inserted into it by a content script. However each script operates in its own isolated world, which contains its own clean JavaScript environment which ensures that libraries and scripts do not conflict with one another. Many isolated worlds may operate on the same shared DOM tree but as security precaution they each get their own compliment of JavaScript objects to represent the tree. As no JavaScript objects are shared between these isolated worlds it is not possible for webpage scripts to use the shared DOM to become free of the normal web browser sandbox and somehow get access to the content script or any of the powerful APIs available to the extension. 
+
+\section{Implementation}
+
+\subsection{Ad Explorer}
+There was a large number of difficulties with this project, as there was a distinct lack of documentation regarding how to interact with advertising IFrames. This is largely due to the fact that Online Advertising is a secretive business and one that the revenues are largely dependent upon these IFrame adverts to be prosperous. Therefore a disproportional amount of time throughout this project was spent researching and documenting potential approaches which may have achieved the aim to expose the source and id of IFrame objects via the means of an extension.  \\
+
+Firstly, I began development of the Advert Explorer plugin, detailing the attributes of the IFrame objects in a centralised searchable manner via a the popup page. As discussed in the design of this plugin, I attempted to be as modular as possible, fitting each of the distinct areas of functionality into one JavaScript file, as I felt this would enhance the portability of the code as if I had to utilise the code in other areas of the project then this would be easily accomplished due to the loose coupling of the components. \\
+
+The development of this section of the project largely went to schedule, although it did take me some time to familiar with the Google Chrome extension platform and some of the best practises when developing in this environment.  
+
+\subsection{IFrame Explorer}
+It was difficult to develop the IFrame Explorer plugin as numerous approaches I took to expose the source of the IFrames resulted in development being halted by security measured  placed on the browser such as the Same Origin Policy and Cross-site scripting (XSS). Therefore a significant proportion of my development time was taken up by attempts to circumvent these security restrictions, until I found that they may be ignored by Content Scripts enabled within a Google Chrome extension. Even with content scripts finding a way to operate the JQuery library in the context of an extension whilst also injecting my script to perform the changes took a large amount of time. As this process is complicated as it involves a bit of indirection such that the JQuery script must be executed to first, so that the JQuery methods avaliable in the second script function as intended. To achieve this the \textit{chrome.tabs.executeScript} API method is used to execute the JQuery script and then in a callback function the \textit{chrome.tabs.executeScript} function is initiated again with the parameters of the current tab and the script containing the IFrame exposing logic. Whilst this may seem relatively trivial after development, it is a bespoke problem in such that there was little documentation regrading how to go about this problem and it involved a large amount of my time to research and implement this functionality. \\
+
+During the development of the second plug-in, I became aware that to place the IFrame attributes over the image of the advert lead to unclear results as the image attracted attention away from the attributes and in some cases obscured them completely. I therefore deviated slightly from design in that the plugin will now replace IFrame contents. Therefore the advert will be replaced with a red box including the IFrame source and id values. 
+
+\subsection{Difficulties}
+It took longer than expected to identify a potential deliverable for this project. This was largely  due to targeted advertising being a secretive and poorly documented area. Furthermore I particularly wanted to create a deliverable that would add business value to my industry contact rather than re-creating something that exists already I wanted to create something novel. This meant whilst conducting the research which forms the basis of the report myself and supervisor were investigating a niche area which could be of potential use in industry whilst providing a significant development challenge for this project. \\
+
+It became clear after significant development that the ability to test and deploy this plugin at wide scale would be limited by the widely adopted ``Same Origin Policy". This policy ``restricts how a document or script loaded from one origin can interact with a resource from another origin" \parencite{sameOrigin}. It is a critical security mechanism for isolating potentially malicious document.
+
+\section{Testing}
+Unlike a traditional program which may prove its desired functionality via extensive unit testing and potentially formal verification. The approach to testing a browser extension which is concerned with implementing changes to appearance of a webpage I felt that these forms of testing should be secondary to usability testing of the extension. Thus, I decided to separate the testing into two distinct areas, firstly I created a testbed on my school host server, which I used throughout development to ensure the requirements of the plugin were met. Secondly, I carried out numerous tests on popular web pages on the Internet to see how well the plugin would scale. 
+
+\subsection{Testbed}
+
+\subsection{In the wild}
+
+\section{Evaluation and critical appraisal}
+
+\section{Ad Blocking}
+% how does it work 
+The ever increasing expenditure on online advertising has made it ubiquitous, which in turn has caused consumer discontent at some intrusive and omnipresent advertising. Therefore, browser plugins have been developed to help combat these adverts such as AdBlocker and Adblock Plus, which will remove adverts from webpages, allowing a user to browse without ever seeing adverts. These plugins are complimented by Virtual Private Network (VPN) or Domain Name Service (DNS) solutions and act like a firewall between the web browser and all known ad servers. The database of blocked ad servers is maintained by a large and active open source community \parencite{adobeAdBlock}. The proportion of Internet users who use the methods described above to block adverts continues to grow strongly as the usage increased by 41\% year on year from (Q2 2014 - Q2 2015) \parencite{adobeAdBlock}. As of June 2015, there were 198 million monthly active users for the major ad blocking browser extensions \parencite{adobeAdBlock}. The estimated loss of global advertising revenue due the increase in blocked ads during 2015 was \$21.8 billion \parencite{adobeAdBlock}. \\
+
+% mobile
+This trend of a loss in revenue looks set to worsen as the ability to block mobile adverts is available as an extension purchased from the App Store in the recent iOS 9 update for Apple's mobile \textit{Safari} browser. Although mobile ad blocking is yet to be a factor in the rise of ad blocking growth, in Q2 2015 mobile accounted for 38\% of all web browsing, however only a tiny proportion of 1.6\% of ad block traffic on the PageFair network was from mobile devices \parencite{adobeAdBlock}. Although the amount of ad blocking occurring on mobile devices is trivial at the moment, the publicity boost of the recent update to iOS will draw more attention to ad blocking and may act as catalyst for  much larger ad blocking growth. Mobile is an ever increasing percentage of web browsing and as you can now block ads on the two most popular mobile operating systems, both Andriod (via an app such as AdBlock Plus which will block ads within the Chrome or Firefox browser) and iOS platforms means that there is a larger potential than ever for adverts to be blocked by users. \\
+
+% add graph from adobe pdf about why people block ads 
+There are a multitude of reasons why a user may choose to block adverts Figure \ref{fig:whyBlockAds} illustrates a number of the most common. You can see that the largest proportion of the graph 45\% is users who wanted to remove all adverts from their browsing experience \parencite{publishersWeb}. The second largest segment 27\% of users wanted to remove ads they found especially annoying \parencite{publishersWeb}. Whilst others sighted performance, privacy, tracking. Whilst ad blocking may pose a number of advantages for web users, it may be damaging not only to the advertising and connected industries but the entire web ecosystem. \\
+
+% discuss how this will effect web ecosystem (paywalls)
+As technology develops and ad blocking becomes more commonplace, the growth in ad blocking usage may receive a sharp growth from mobile users,  this has the potential to challenge the viability of the web as a platform for the distribution of free ad-supported content \parencite{adobeAdBlock}. Although organisations such as Forbes have began to hide some content from users who are using ad blocking software whilst showing banners explaining they offer users a ``ad light'' version of the web page to encourage them to not use the ad blocking software, there is no guarantee that users will simply not move to the next content supplier who does not have such restrictions \parencite{publishersWeb}. Other organisations such as GQ have taken a different approach, asking users to disable their ad blocker to view their content or pay a small fee such as 50 cents per article \parencite{gq}.  This vicious cycle could see the end of the ``free web'' where information is supported via the use of adverts and in turn create an Internet littered with ``Paywalls'' where users must have a paid subscription to access content. Although Internet users may see some adverts as intrusive and annoying, the use of ad blocking software is having a detrimental effect on the web ecosystem which is so heavily reliant upon advertising. If a solution is not found, that pleases both parties, such that users are no longer faced with intrusive and annoying adverts that impede their browsing, and content providers are still able to provide their content using the funding of ads then there may be some balance. However, if a solution is not found the content and knowledge of the web could be locked behind many Paywalls which would be detrimental for all web users. \\
+
+\section{Future of Tracking}
+With the introduction of Mobile-content blockers we have reached a pivotal time in the evolution of the World Wide Web. Although desktop ad-blocking mechanisms have been around for a number of the years, the sheer number of advantages that mobile ad blocking presents for users such as, bandwidth savings (a key issue for mobile data contracts) and faster page load times are crucial to effective use of mobile web browsing. Whilst a key issue on desktop environments the privacy gain from the lack of tracking is simply a bonus. As the shift from traditional desktop browsing inexorably moves to smartphones losing the ability to target advertising to iOS could become a catalyst for a change in the free content available on the web \parencite{tippingPoint}. These technologies will deeply affect digital advertising and its related parties but also the entire web ecosystem. \\
+
+The future of web tracking and targeted advertising is a shift away from the traditional methods of third-party cookies and JavaScript snippets, as these methods simply do not produce reliable results. This paper has discussed in depth the effects of different forms of Fingerprinting and how it could potentially be utilised to track users. Without the ability to reach users with advertising on their sites a lot of free-content on web pages may become hidden behind paywalls which are now required to ensure the financial viability of web pages. If the Do Not Track (DNT) header had been implemented by governements and advertising agencies there may not have been an issue with advert blocking, however as long as there is a form of ad re-targeting where adverts follow user's around on third party pages this war between privacy and free content will continue.  \\
+
+This is the tipping point where advertising organisations must begin to re-think their strategies and remove potentially annoying adverts and insidious tracking mechanism becoming more responsible. Although the impact of this increase in online privacy is likely that organisations will simply adapt and find other ways to share data. For example Facebook has already introduced an approach called ``Custom Auidence Targeting" (\url{http://on.fb.me/1SnIX7x}) which can be utilised by advertisers to target adverts on Facebook to users whom they have already collected data from. As users become more technologically advanced in their blocking mechanisms techniques including ``universal IDs and IP reconciliation will also become more widespread and important to marketers and content platform" \parencite{tippingPoint}.
+
+\section{Future Work}
+\subsection{Caveats}
+
+\section{Conclusions}
+Ultimately the web ecosystem is complicated and diverse. The dependency upon advertising to fund the ``Free web'' has created an environment over-reliant on advertising to support itself. The ecosystem is over populated with ubiquitous intrusive tracking and advertising, even when privacy conscious users attempt to avoid these types of monitoring, techniques such as browser fingerprinting make it impossible for web users to avoid some form of profiling. This paper has delved into the various areas used to generate targeted advertising, attempting to bring these techniques to the forefront to expose them to users so they may be combated to return privacy to the hands of the users. \\
+
+However, the genie is effectively out of the bottle; returning privacy to the hands of the users would require combined pressure from governments, standards organisations and web users which is unlikely to happen. An alternative model to the ``Free web'' in terms of advertising would be ``paywalls'' were information on web pages is only displayed to paying customers, which would create a fractured ecosystem where only users with enough money would be able to access the vast amount of information available on the Internet which is an outcome that would be detrimental for society as a whole. \\
+
+In comparison to the wealth of information and free content available on the web, targeted advertising is a small price to pay. Personally, I feel that users would feel much more comfortable with the process if it was made more transparent by organisations explaining how their tracking procedure is conducted and allowing users to potentially opt-out. To conclude, whilst the techniques used to generate targeted advertising are insidious, the majority of adverts on the web do not impede web usage, these adverts underpin the majority of the free content on the web so are ultimately beneficial for almost all users of the Internet.
+
+\section{Appendix A: Testing summary}
+
+\section{Appendix B: Privacy enhancing techniques} \label{appendixA}
+\begin{enumerate}
+    \item Change cookie settings in Chrome: Select the horizontal vertical bars menu, select settings from the drop down menu. Click show advanced settings; under the privacy tab select content settings. In the content settings menu under the cookies header select the option ``Keep local data only until you quit your browser'' and tick the box ``Block third-party cookies and site data" \url{http://bit.ly/1jRXpDq}. 
+    \item Change cookie settings in Firefox: Select the three horizontal bars menu, choose Preferences. Select the Privacy panel, under the History header select the drop down option ``Use custom settings for history", select the Accept cookies from sites, ensure the drop down for the Accept third party cookies is set to ``Never" and the Keep until is set to ``I close Firefox". \url{http://mzl.la/1QulzDX} 
+\end{enumerate}
+
+\section{Appendix C: User manual}
+
+\section{Appendix D: Glossary}
+\subsection{Online Advertising}
+% TODO: Concise definition
+
+\section{Targeted Advertising}
+% TODO: Concise def
+
+\subsection{Entities involved in Targeted Advertising}
+Entities involved include the Advertiser, the Demand Side Platform (DSP), the Supply Side Platform (SSP), Ad Networks and Ad Exchanges, and the Publisher. The Advertiser, will usually have a product that they wish to promote and are willing to pay for this promotion on a website e.g. \textit{Coca-Cola}. The publisher in this case is any website that is willing to give up real-estate on their page for an Advertiser's product e.g. \textit{gaurdian.com}. These two parties are normally connected by an Ad-network which has a large amount of advertising infrastructure and for a fee will facilitate it's services e.g. \textit{Google AdSense}. This is discussed in more detail in Section \ref{AdNetwork}. The parties can also be connected by an Ad Exchange as discussed in Section \ref{AdExchanges}. Parties wishing to advertise can also utilise Demand Side Platforms to purchase digital advertising inventory this is discussed in Section \ref{DSP}. In contrast to DSPs, Supply Side Platforms can be utilised by web publishers to manage their advertising space inventory, filling it with adverts and receiving the corresponding revenue. This platform will be discussed in Section \ref{SSP}.  
+
+% TODO: Research this
+\subsection{Behavioural Re-targeting}
+Adverts are a fundamental part of the web ecosystem. Users have begun to expect adverts for the latest line of sports trainers, whilst they are browsing the web site of an online clothes retailer. However, whilst surfing the Internet users are becoming increasingly aware of ``behavioural re-targeting'' where an advert which may have been viewed on a completely different web site seemingly ``follows'' that user as they visit other unrelated web pages. This process is becoming increasingly prevalent as shown by a study of cookies in the top 100 web sites, in which an average of 57 cookies per web page was recorded, whilst 20\% of pages visited contained 100 or more cookies \parencite{taOffer}. However, the most concerning fact about this discovery was that 87\% of cookies on these web sites were set by third-parties \parencite{taOffer}. This is where the re-targeting process begins. Whenever the user visits a page within the same Ad Network (discussed in detail in Section \ref{AdNetwork}) the previous advert can be displayed to the user. \newline
+
+\subsection{Ad Networks} \label{AdNetwork}
+Online Ad networks began to appear in 1997. The original ad networks were created to address the problem of advertisers wanting to buy online inventory \parencite{adExchanges}. Internet audiences are incredibly fragmented, splitting their online time between many different websites. This is in contrast to the traditional forms of media such as print, radio and television. By aggregating inventory across multiple sites, ad networks could offer advertisers the ability to reach the size of audience that they had come to expect from traditional channels of advertising. \newline
+
+Ad networks can be defined as a company that connects advertisers to web sites that want to host advertisements. The key function of these networks is aggregation of ad space supply from publishers and matching it with advertiser demand. 
+
+\subsection{Ad Server}
+An Ad server is defined as the technology and services that places an advertisement upon a website. This technology can also be used to count the adverts, select more profitable locations for adverts and monitor the progress of different advertising campaigns. Ad Servers can be defined into two types: Publisher ad servers and advertiser or third party ad servers. \newline 
+
+Typically an Ad server is a physical computer web server backed by a database server which can be used to store the advertisements and delivers them to website visitors. The contents of the web server is constantly updated so that the website which is used to display the ads contains fresh advertisements. The aim of ad serving is to deliver the content of adverts to users, to manage a websites advertising space and in the case of advertiser ad servers to provide an independent counting and tracking system to advertisers. \newline 
+
+When Ad servers are run locally by a single publisher they can be used to serve ads to that publisher's domain, allowing fine-grained, creative, formatting and content control by that publisher. However, remote ad servers can serve ads across domains owned by multiple publishers. This one centralised repository of adverts can allow advertisers and publishers to track the distribution of their online advertisements. 
+\newline
+
+\subsection{Demand Side Platform} \label{DSP}
+The Demand Side Platform (DSP) can be described as software used to purchase advertising in an automated fashion. DSP facilitates a buyer with direct Real Time Bidding (RTB) access across multiple sources of inventory \parencite{introDSP}. Advertisers use DSPs to purchase impressions (an advertising slot) across a range of publisher sites, but targeted to specific users based on information such as their location and previous browsing history. Thus, enabling buyers to access a wider range of publishers and select the most appropriate for their requirements. For example Apple might recognise that a user has previously been on their site looking at a specific computer and therefore they may be prepared to pay more than Amazon or EasyJet to serve ads to the user. This process removed the human element of digital advertising which in turn improved the efficiency of the process whilst reducing the costs via automation. Publishers will make their impressions available through marketplaces called ad exchanges and then DSPs will automatically decide which impressions suit the requirements of the advertiser and purchase these impressions. Demand Side Platforms are offered by a large number of companies for example: App Nexus, Google DoubleClick, AdForm. 
+
+\subsection{Supply Side Platform} \label{SSP}
+A Supply Side Platform (SSP) is the publisher's equivalent of a DSP. Where DSPs are utilised by advertisers to buy ad impressions from exchanges in the most cost effective and efficient manner possible, SSPs are designed by publishers to do the opposite: to maximise the price an impression sells at. SSPs allow publishers to connect their inventory to multiple Ad Exchanges, DSPs and Ad networks at once. This increases the range of potential buyers dramatically which in turn can force the price of impressions higher and ensure that publishers get the highest possible rates therefore maximising the revenues they receive for their inventory. Whenever a Supply Side Platform is used to place an impression into various ad exchanges, DSPs will analyse and purchase them on behalf of marketers depending on attributes such as where they are served on the screen and which specific users they're being served to \parencite{introDSP}. Example of SSPs are: AppNexus Publisher Suite, Yahoo and OpenX SSP.  
+
+\subsection{Real Time Bidding}
+Real Time Bidding (RTB) is a deterministic process by which advertising inventory is bought and sold on a per-impression basis, via programmatic instantaneous auction, this approach is analogous to the financial markets \parencite{RTB}. With RTB advertising buyers bid on an impression in a real-time auction that occurs in the time it takes a web page to load. If the bid is won, the buyer's ad is instantly displayed on the publisher's site. These auctions are often facilitated by Ad Exchanges or Supply Side Platforms. One of the main advantages of Real Time Bidding is that it facilitates advertisers to manage and optimise adverts from multiple ad-networks by granting the user access to a multitude of different networks. Furthermore it gives advertisers the ability to create advertising campaigns on an instantaneous basis and allocate a much higher percentage of their unsold advertising inventory. \newline
+
+In its simplest form, the RTB process unfolds much like the following: 
+\begin{enumerate}
+\item The publisher provides its inventory to an Ad Exchange, who is responsible for holding an auction, during which the DSPs, on behalf of the advertisers, will place a bid on each impression \parencite{howRTBWorks}. 
+\item The value of the bid is based on the expected value of that impression to the advertiser based upon the parameters they have passed to the DSP. The auction process ensures that each impression is sold at as high a price as possible as dictated by the demand in the real-time market \parencite{howRTBWorks}. 
+\item Once the bidding is over, the winner is chosen and their ad is served on the publisher's website. 
+\end{enumerate}
+
+\subsection{Data Management Platform}
+To acquire the large amounts of data needed to target and potentially re-target users with advertisements many organisations now use Data Management Platforms (DMP). DMPs are essentially a data warehouse, a piece of software that is utilised to store, sort and report on the vast amount of data used by all businesses involved with the programmatic advertising process. In a similar manner to a database DMPs can be used to house and manage any form of information but marketers most often utilise the platform to manage cookie IDs and to generate audience segments, which are subsequently used to target specific users with online adverts \parencite{DMP}. As previously discussed the myriad of middlemen including DSPs, ad networks and exchanges makes it hard for advertisers to keep track of their performance. Therefore, a Data Management Platform can be used as a centralised repository to keep all audience data and resulting performance of advertising together, which allows advertisers to optimise future inventory purchasing and ad creativity. Examples of Data Management Platforms include: Oracle DMP (powered by BlueKai), Adobe Audience Manager and Krux. \newline
+
+DMPs can be used on both sides of the advertising ecosystem. Information can be fed from a marketer's DMP to its DSP to help inform ad purchasing decisions, but without being linked to another technology, a DMP is largely redundant. In contrast, DMPs can be 
+utilised by publishers by linking them to a SSP. In this case, the DMP holds publisher information on its readers, which may help them to sell their adverts for a higher price. Like many of the areas discussed in this paper the line between DMPs and DSPs are largely artificial and are beginning to blur, as growing number of DSP providers now offer their clients DMP services too.  
+
+\subsection{Ad Exchanges} \label{AdExchanges}
+Ad Exchanges can be seen as the medium through which Ad impressions from publishers can be made available to potential buyers. An advert exchange is a technology platform that facilitates the buying and selling of media advertising inventory whose prices are determined through an online auction with bidding coming from multiple ad networks, this process is also referred to as Real Time Bidding. This approach is technology-driven as opposed to the traditional process of negotiating prices on media inventory. Examples of these platforms are: DoubleClick, AdECN, Rubicon Project and Open X. \newline
+
+Whenever a user visits a website, in the short interval of the page load time, in the background an ad exchange conducts an auction between multiple advertisers for each impression on that page. The advertisers bid for the impression of the user and compare this to their target behavioural and demographic along with the subject matter of the website and the dimensions of the ad (including placement on the site). The highest bidder during the auction will win the right to place an ad on the website. This whole procedure takes place in ``real-time'' in the short number of milliseconds it takes for a web page to load, an example of the auction process is shown in Figure \ref{fig:adExchange}. 
+
+\subsection{Targeted Ad Networks}
+Targeted Ad networks differ from an Ad network by allowing advertisers to buy audience segments such as: demographics (e.g. gender, age),  behavioural segments (e.g. interest in buying a home), by context (e.g. websites that are in a particular subject area) or by alternatives to Cost Per Mile (CPM) such as cost per 1000 viewers of the advertisement. This holds a significant advantage to advertisers as it offers them the ability to buy on a performance basis. Similarly, this structure offers benefits to publishers who have the ability to sell remnant inventory without cannibalizing higher priced inventory sold directly via ad networks \parencite{adExchanges}. Examples of Targeted advertising networks include: Google AdSense, Yahoo! Publisher network and AOL Advertising. 
+
+\section{Online Advertising Fraud}
+With the recent move to utilise RTB platform, online advertising fraud has become increasingly ubiquitous. Ad fraud can be defined as ``any time an impression or click is served to a non-human user (aka bot), or shown in an intentionally non-viewable inventory space" \parencite{dstillery}. There are numerous subsections of advertising fraud, this paper will focus on hidden ad impressions, paid traffic fraud and re-targeting fraud.   
+
+% With the recent move to utilise RTB platform
+\subsection{Hidden ad impressions}
+Hidden ad impressions sometimes referred to as ``Ad stacking" or ``Ad stuffing" is a method of fraud, in which advert impressions are hidden from the user, as they are simply to small for the human eye to recognise, for example a study conducted by the security firm White Ops for the Association of National Advertisers (ANA) found as many as 85 adverts on a single page of which most were completely hidden to the user, as they were mostly 1x1 pixels in which an advert was served \parencite{botfraud2015}. Another method used to hide ad impressions is stacking the adverts on top of one another, such that the user of the web page will only see the advert at the top of the pile, however the web page will have served and be paid for multiple adverts. An example of ad stacking can be seen in Figure \ref{fig:adstack}. Figure \ref{fig:legitAd} shows an ad slot which is sold through one display ad exchange, this is typically a high quality webpage which would attract a human user. This is contrasted with Figure \ref{fig:adFraud}, which depicts a webpage was filled with 12 adverts each of which will be sold immediately by the ad trader through multiple display ad exchanges \parencite{spiderIo}. This form of advertising not only applies to image adverts but also video adverts can be served in 1x1 frames and looped in sections so no user can see them. This form of advert fraud can be used in tandem with ``Click Fraud" to boost fraudulent revenue by artificially increasing the volume of clicks on adverts by utilising a botnet. This is typically utilised by a lower standard of inventory sources who are looking to increase their overall inventory revenue by making their page more attractive to potential advertiser with a higher click through rate.   \\
+% TODO: find a stat to back this up. Discuss figure
+
+
+This form of fraud can have far-reaching consequences on advertisers, as millions of adverts can be sold on ad exchanges daily but none of these ads will ever be seen by a human user. The Interactive Advertising Bureau (IAB) that the costs incurred along with the lost revenue opportunity cost will cost the US marketing and media industry \$8.2 billion per year \parencite{iabfraud}. There are numerous methods available to combat this method of fraud, for example organisations such as Forensiq, ComScore and DoubleVeify offer services as fraud detection companies. Furthermore, accredited Ad servers such as DoubleClick, Sizmek and Atlas Solutions all adhere to rigorous anti-fraud standards of either the Media Rating Council or the Interactive Advertising Bureau or both, each of these organisations use proprietary technology to watch for impression fraud. Although purchased by Google in February 2014, Spider.io was one of the first organisations to explore ad visibility. They discuss how if the simple geometric position of an advert, relative to the browser window is used to infer its viewability then the 9 ads in amber labelled with ``Fake viewability" shown in the webpage in Figure \ref{fig:adFraud} would actually be reported as viewable. This is due to the boundary of the browser window including the boundaries of the 9 ad impressions even though these ads will not be painted to the display. Thus, no user will ever see these hidden adverts \parencite{spiderIo}. Although organisations are increasingly gaurded about releasing information about their anti-fraud implementations for fear of losing their competitive advantage.  \\ 
+
+
+Unfortunately, there is no silver bullet to completely remove ad impression fraud, there are a multitude of methodologies that can be utilised in conjunction with one another, to attempt to ensure that an advert is seen by a human use, however this is no guarantee. 
+
+\subsection{Paid traffic fraud}
+One of the largest challenges in the paradigm of online advertising is how to ensure human users are actually seeing and then clicking through adverts. Bloomberg reported that 11\% of display ads and 25\% of video ads placed on the Internet in 2014 were seen by bots, instead of human users \parencite{bloomFraud}. This correlates with the research of the Financial Times newspaper that found that part of a Mercedes-Benz on-line advertising campaign was viewed more often by computer bots than by real human users. With legitimate human users amassing only 43\% of the views \parencite{mercFraud}. Advertising is suffering heavily from the prevalence of Bot Nets, which can be defined as a network of private computers infected with malicious software (malware)  and controlled as a group without the owners' knowledge. In the case of advertising fraud, bot nets are being used when publishers purchase traffic (views) for their website to help boost the price of their advertising inventory. Now that the purchasing of `fake traffic' is so ubiquitous in the advertising industry it has given rise to an industry of countermeasures \parencite{bloomFraud} where publishers are constantly battling the ever increasing number of fake or software related views. This will damage advertisers most, as they are forced to check whether their ads are being viewed by the ever increasing army of bots instead of potential human clients. The 2015 ``Bot Baseline: Fraud in Digital Advertising report" concluded that adverts viewed by non-human traffic will cost advertisers \$6.3 billion in 2015 \parencite{botfraud2015}, this figure is predicted to increase to \$7.2 billion in 2016 \parencite{botfraud2016}. This shows the prevalence and scale of advertising fraud and that advertisers and publishers must work together to help to mitigate the effects of the fake traffic associated with bot nets. Publishers are currently using multiple methods to detect nonhuman traffic however, there is no single standard used by the industry. This form of fraudulent activity is the biggest threat to the online advertising industry. However, as long as publishers continue to by traffic to their website for the purpose of boosting their advertising revenues, this fraudulent activity looks set to continue.
+
+% TODO: Resarch this
+\subsection{Re-targeting Fraud}
+Re-targeting fraud is the process in which bots can be programmed to mimic specific and highly desirable user behaviour, for example this could take the form of a bot pretending to have an interest in a specific brand of car, travelling to the relevant webpage and acting like a normal consumer intending to make a purchase. In depth behaviour may include, researching relevant topics on websites and clicking on ads, all without actually making a purchase. This behaviour then activates a campaign of re-targeted ads, which attempt to attract this potential customer to purchase the car, however the user was a bot. This may boost the revenues of a fraudulent ad targeting company by allowing them demand the higher CPM associated with retargeting, on their page which the bot user will travel too. \\
+
+The ANA has a number of suggestions about how to combat Bot fraud especially in re-targeting campaigns, they suggest to use a form of third-party monitoring and bot detection to reveal bots within re-targeting campaigns and audience metrics. As this will prevent any further media being targeted at those bots, thus improving campaign metrics \parencite{botfraud2015}. A further recommendation is to apply day-parting where possible, as the ANA noticed a large proportion of bot fraud traffic between midnight and 7 a.m so advice to all entities is be vigilant during this time frame. Finally, updating of blacklists frequently and with precision is required to effectively block bots from viewing ads. For blacklists to be effective they must be updated at a minimum daily, and must be very specific to avoid blocking legitimate users \parencite{botfraud2015}.  
+
+
+\end{document}
