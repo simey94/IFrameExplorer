@@ -1,3 +1,10 @@
+/**
+ *  Author: Michael Sime (120011995)
+ *  File: custom.css
+ *  Function: Enforces styling on the exposed
+ *	IFrame id and src. 
+ */
+
 .iframeSource{
 	text-align: center;
 	font-size: 14pt;

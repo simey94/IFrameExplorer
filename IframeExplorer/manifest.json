@@ -1,3 +1,10 @@
+/**
+ *  Author: Michael Sime (120011995)
+ *  File: manifest.json
+ *  Function: Defineds necessary elements of
+ *  a Google Chrome extension.
+ */
+
 {
   "name": "IFrame Explorer",
   "description": "Replaces IFrame content with id and src of IFrame object",
@@ -16,7 +23,8 @@
     "matches": [ "http://*/*", "https://*/*"]
   }],
   "browser_action": {
-    "default_title": "Expose IFrame attributes"
+    "default_title": "Expose IFrame attributes",
+    "default_icon": "ba_icon.png"
   },
   "manifest_version": 2
 }
