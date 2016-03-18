@@ -1,0 +1,26 @@
+/**
+ *  Author: Michael Sime (120011995)
+ *  File: manifest.json
+ *  Function: Required to define a Google Chrome extension
+ *   
+ */
+
+{
+  "manifest_version": 2,
+
+  "name": "iFetch",
+  "description": "This extension will fetch the source code of all IFrames within the current tab",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "favicon.png",
+    "default_popup": "popup.html",
+    "default_title": "Fetch IFrame source!"
+  },
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "http://*/*",
+    "https://*/*"
+  ]
+}

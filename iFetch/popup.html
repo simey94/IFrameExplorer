@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Meta data -->
+    <meta charset="UTF-8">
+    <html lang="en">
+    <meta name="description" content="iFetch Plugin">
+    <meta name="author" content="Michael Sime">
+
+    <title>iFetch</title>
+    
+    <!-- Styling -->
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+    </style>
+
+    <!-- Script -->
+    <script src="popup2.js"></script> 
+  </head>
+
+  <body>
+  <!-- Search bar and button -->
+    Search: <input type="search" id="mySearch" value="E.g. Google iFrames">
+    <button id="searchButton">Click here to Search</button>
+
+    <!-- Stores the URL of user's current tab -->
+    <div id="url"></div>
+    <!-- Displays what the user searched for -->
+    <p id="searchTerm"></p>
+
+    <!-- Counts for the number of IFrames -->
+    <p id="iframeCount"></p>
+    <p id="searchIframesCount"></p>
+
+    <!-- Stores the IFrame src -->
+    <div id="message"></div>
+    
+    <!-- Centers the button and title -->
+    <div style="text-align:center;">
+      <p id="copySrcLabel"> Copy All IFrames </p>
+      <button id ="copySrcButton"><img src="copy-icon.png" /></button>
+    </div>
+
+    <!-- Seperate all IFrames from search results -->
+    <br></br>
+
+    <!-- Displays search results to user -->
+    <p id="searchLabel"> Iframes source containing search term: </p>
+    <div id="searchMessage"></div>
+    
+    <!-- Centers the button and title -->
+    <div style="text-align:center;">
+      <p id="copySearchLabel"> Copy Search Results  </p>
+      <button id ="copyButton"><img src="copy-icon.png" /></button>
+    </div>
+
+  </body>
+</html>
