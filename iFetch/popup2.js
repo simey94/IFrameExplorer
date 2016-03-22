@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /**
- *  Handles the functionality for the copy all
- *  IFrame button.
+ *  Handles the functionality for the copying of search
+ *  results button.
  */
 
 function copySearchButtonClickHandler(){
