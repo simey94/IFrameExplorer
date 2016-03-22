@@ -113,9 +113,9 @@ function copySrcButtonClickHandler(){
 };
 
 /**
- *  Creates an onClick listener for the copying 
- *  of search results. Hides search elements and
- *  copy button until user presses search button.
+ *  Creates an onClick listener for searching.  
+ *  Hides search elements and copy button   
+ *  until user presses search button.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -174,5 +174,40 @@ function clickHandler(){
   // Output number of search results returned
   var searchCount = document.getElementById("searchIframesCount").innerText = "After search number of iFrames:  " + count.toString();
 }
+
+/**
+ *  Creates an onClick listener for the copy search 
+ *  results button.
+ */
+
+document.addEventListener('DOMContentLoaded', function () {
+  var copySrcButton = document.getElementById('copyButton');
+  copySrcButton.addEventListener('click', copySearchButtonClickHandler);
+});
+
+/**
+ *  Handles the functionality for the copy all
+ *  IFrame button.
+ */
+
+function copySearchButtonClickHandler(){
+  var button = document.getElementById("copyButton"); 
+  
+  // Setup text to be copied  
+  var range1 = document.createRange();  
+  range1.selectNode(searchMessage);  
+  window.getSelection().addRange(range1);  
+
+  try {  
+    // Execute the copy command  
+    var successful = document.execCommand('copy');  
+    var msg = successful ? 'successful' : 'unsuccessful';  
+    console.log('Copy command was ' + msg);  
+  } catch(err) {  
+    console.log('Unable to copy');  
+  }  
+
+  window.getSelection().removeAllRanges();  
+};
 
 window.onload = onWindowLoad;
