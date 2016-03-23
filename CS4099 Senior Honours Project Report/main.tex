@@ -164,7 +164,7 @@ University Library. I also give permission for the title and abstract to be publ
 
 \pagestyle{fancy}
 \section{Introduction}
-Online advertising has existed since the inception of the World Wide Web. The first clickable advert, which was later defined as a banner ad, was sold on the web by Global Network Navigator in 1993 to Heller, Ehrman, White, \& McAuliffe a law practice in Silicon Valley \parencite{oreilly}. The first mass production of advertising was implemented by \textit{HotWired.com} (now called Wired) which sold a large number of banner ads to corporate advertisers \parencite{firstAd}. These organisations where at the cutting edge of advertising which has subsequently spawned into the complex ecosystem that online advertising is today. Online advertising is an increasingly broad category which takes up a large percentage of advertising budgets worldwide the forecasts of Statistia state that digital advertising increased to approximately \$121 billion in 2013 and is expected to double by 2018 \parencite{Statistia}. Figure \ref{fig:M1} shows the upward trend in spending on online advertising as it looks likely to become the most common form of advertising.   \\
+Online advertising has existed since the inception of the World Wide Web. The first clickable advert, which was later defined as a banner ad, was sold on the web by Global Network Navigator in 1993 to Heller, Ehrman, White, \& McAuliffe a law practice in Silicon Valley \parencite{oreilly}. The first mass production of advertising was implemented by \textit{HotWired.com} (now called Wired) which sold a large number of banner ads to corporate advertisers \parencite{firstAd}. These organisations where at the cutting edge of advertising which has subsequently spawned into the complex ecosystem that online advertising is today. Online advertising is an increasingly broad category which takes up a large percentage of advertising budgets worldwide the forecasts of Statistia state that digital advertising increased to approximately \$146 billion in 2015 and is expected to double by 2018 \parencite{Statistia}. Figure \ref{fig:M1} shows the upward trend in spending on online advertising as it looks likely to become the most common form of advertising.   \\
 
 \begin{figure} [H]
     \centering
@@ -196,7 +196,7 @@ The Federal Trade Commission (FTC) defines targeted advertising as ``the practic
 
 These various statistics show the diverse range of consumer opinion on the topic of targeted advertising, whilst some view it as an invasion of their privacy, others see it as a price to pay to access the wealth of free content on webpages funded by advertising. Previous studies have stressed the privacy concerns about targeted adverting, proposing a privacy enhancing framework \parencite{wang2015privacy}, whilst others analysed the effectiveness of targeted advertising \parencite{brahim2011targeted}. However, this paper will focus upon the techniques used by  advertisers to create tailored online behavioural advertising. \\
 
-There are numerous techniques used by advertising organisations to gain personal information of users for the purpose of targeted advertising, this paper will look to explore the various techniques and discuss how a user can increase their online privacy. 
+The online advertising industry is a secretive and poorly documented area. The major objective of this project is to expose the area of targeted advertising, educating users on the practises used by trackers to profile users whilst providing advice on how to improve their privacy. The project will seek to bring the methods used to track and create profiles of users to the forefront, whilst creating a framework of tools to expose the source of IFrame adverts on webpages, it also discusses the contemporary issues of ad blocking and online advertising fraud. The project has met all of the aims set out for it in Section \ref{requirements}, consolidating previous research and producing novel research which will be of benefit to all users of the Internet. The covert nature of the online advertising industry combined with the lack of documentation surrounding its processes and procedures meant a disproportionate amount of time during this project was spent researching and understanding the area before a deliverable could be designed. This complication limited the amount of time spent on the development of the software deliverable of the project. However, the deliverable was finished and in future work it would merely require a final User Interface (UI) polish before it could reach its full potential.   \\
 
 \section{Context Survey}
 This report has centralised a large amount of information from the broad area of targeted advertising. There are numerous terms and acronyms used within the industry which have been summarised in the Glossary of Appendix D in Section \ref{glossary}. The following sections explore the domain of targeted advertising from a technological perspective: examining the tools used by organisations to track and profile users, defences users can employ to limit the effectiveness of these tracking mechanisms, the contentious area of ``Ad blocking" and a discussion of how fraud is affecting the online advertising industry.   
@@ -472,7 +472,7 @@ This protects users from a number of threats such as, eavesdropping and tamperin
 
 % TODO
 \subsection{How improve your web browsing privacy}
-In this section of the report I will discuss numerous simple and free methods to effectively protect your privacy. A detailed explanation of how to utilise these techniques will be given in Appendix B in Section \ref{appendixA}. 
+In this section of the report I will discuss numerous simple and free methods to effectively protect your privacy. 
 
 \begin{enumerate}
     \item Change Cookie Settings: In most modern browsers it is possible to both disable third party cookies and to set cookies to expire once you close your browser. This will help to ensure that tracking identifiers are removed each time you close the browser. Although it is unlikely to fully protect a user from techniques such as Evercookies, it is a good start. 
@@ -712,6 +712,13 @@ $("#button1").click(function(){ alert("Hello"); });
 
 \section{Implementation}
 
+\subsection{IFrame Explorer}
+It was difficult to develop the IFrame Explorer plugin as numerous approaches I took to expose the source of the IFrames resulted in development being halted by security measured  placed on the browser such as the Same Origin Policy and Cross-site scripting (XSS). Therefore a significant proportion of my development time was taken up by attempts to circumvent these security restrictions, until I found that they may be ignored by Content Scripts enabled within a Google Chrome extension. Even with content scripts finding a way to operate the JQuery library in the context of an extension whilst also injecting my script to perform the changes took a large amount of time. This process is complicated as it involves a bit of indirection such that the JQuery script must be executed to first, so that the JQuery methods are avaliable in the second script, so that it can function as intended. Whilst this may seem relatively trivial after development, it is a bespoke problem in such that there was little documentation regrading how to go about this problem and it took up a large amount of my time to research and implement this functionality, with frequent trial and error approaches. \\
+
+During development, I became aware that to place the IFrame attributes over the image of the advert lead to unclear results as the image attracted attention away from the attributes and in some cases obscured them completely. I therefore deviated slightly from design in that the plugin replaces the IFrame image with its source attributes. Therefore the advert will be replaced with a red box including the IFrame source and id values. \\
+
+The combination of both plugins will hopefully form the basis of a framework that users can benefit from, regardless of whether they are within the online advertising industry or external to the industry. In particular, the novel interface of the IFrame Explorer is something I am proud of as it replaces all the IFrames on a web page with their respective attributes with the click of one button. However, the plugins are not perfect and I have outlined my plans to improve them in the future in Section \ref{futureWork}.  
+
 \subsection{iFetch}
 Firstly, I began development of the iFetch plugin, detailing the attributes of the IFrame objects in a centralised searchable manner via the popup page. As discussed in the design of this plugin, I attempted to be as modular as possible, fitting each of the distinct areas of functionality into one JavaScript file, as I felt this would enhance the portability of the code as if I had to utilise the code in other areas of the project then this would be easily accomplished due to the loose coupling of the components. \\
 
@@ -726,14 +733,7 @@ The development of this section of the project largely went to schedule, althoug
 
 I achieved all of the requirements set out for this plugin and the human readable representation of the IFrame data is a novel approach to fetching the related source code of the web page.
 
-\subsection{IFrame Explorer}
-It was difficult to develop the IFrame Explorer plugin as numerous approaches I took to expose the source of the IFrames resulted in development being halted by security measured  placed on the browser such as the Same Origin Policy and Cross-site scripting (XSS). Therefore a significant proportion of my development time was taken up by attempts to circumvent these security restrictions, until I found that they may be ignored by Content Scripts enabled within a Google Chrome extension. Even with content scripts finding a way to operate the JQuery library in the context of an extension whilst also injecting my script to perform the changes took a large amount of time. This process is complicated as it involves a bit of indirection such that the JQuery script must be executed to first, so that the JQuery methods are avaliable in the second script, so that it can function as intended. Whilst this may seem relatively trivial after development, it is a bespoke problem in such that there was little documentation regrading how to go about this problem and it took up a large amount of my time to research and implement this functionality, with frequent trial and error approaches. \\
-
-During development, I became aware that to place the IFrame attributes over the image of the advert lead to unclear results as the image attracted attention away from the attributes and in some cases obscured them completely. I therefore deviated slightly from design in that the plugin replaces the IFrame image with its source attributes. Therefore the advert will be replaced with a red box including the IFrame source and id values. \\
-
-The combination of both plugins will hopefully form the basis of a framework that users can benefit from, regardless of whether they are within the online advertising industry or external to the industry. In particular, the novel interface of the IFrame Explorer is something I am proud of as it replaces all the IFrames on a web page with their respective attributes with the click of one button. However, the plugins are not perfect and I have outlined my plans to improve them in the future in Section \ref{futureWork}.  
-
-\subsection{Difficulties}
+\subsection{Difficulties} \label{diff}
 % Time to decide on deliverable
 It took longer than expected to identify a potential deliverable for this project. This was largely  due to targeted advertising being a secretive and poorly documented area. Furthermore I particularly wanted to create a deliverable that would add business value to my industry contact rather than re-creating something that exists already, I wanted to create something novel. This meant whilst conducting the research of this niche area, which forms the basis of this report, my supervisor and I were investigating  what could be of potential use in industry, this provided a significant development challenge for this project. \\
 
@@ -753,7 +753,9 @@ A further difficulty when developing this plugin, was the variety of formatting 
 I would have liked to extend both plugins further offering more functionality, however this was not possible given the time scale of the project and difficulties discussed within this section. The main areas in which I would like to extend the project in such as the plugin and research are discussed in Section \ref{futureWork}.
 
 \section{Testing}
-Unlike a traditional program which may prove its desired functionality via extensive unit testing and potentially formal verification. These approaches do not lend themselves easily to testing a browser extension which is concerned with implementing changes to appearance of a host webpage. I felt that these forms of testing should be secondary to usability testing of the extension. Thus, I decided to separate the testing into two distinct areas, firstly I created a testbed on my school host server, which I used throughout development to ensure the requirements of the plugin were met. Secondly, I carried out numerous tests on popular web pages on the Internet to see how well the plugin would scale. 
+Unlike a traditional program which may prove its desired functionality via extensive unit testing and potentially formal verification. These approaches do not lend themselves easily to testing a browser extension which is concerned with implementing changes to appearance of a host webpage. I felt that these forms of testing should be secondary to usability testing of the extension. Thus, I decided to separate the testing into two distinct areas, firstly I created a testbed on my school host server, which I used throughout development to ensure the requirements of the plugin were met. Secondly, I carried out numerous tests on popular web pages on the Internet to see how well the plugin would scale in a real world use case. 
+
+\section{Testing IFrame Explorer}
 
 \subsection{Testbed}
 I have created an online webpage which has information about the IFrame Exploration plugin and can be used as a local testbed to demonstrate the functionality of the plugin. I created this to showcase the functionality of the plugin and to ensure a repeatable testing process that a marker could utilise. The testbed can be found at the following URL: 
@@ -762,10 +764,10 @@ I have created an online webpage which has information about the IFrame Explorat
 \url{https://ms255.host.cs.st-andrews.ac.uk/SH/index.html}
 \end{center}
 
-This was created to simulate an online news article and has numerous IFrame advert images inserted around the article. When a user has the plugin installed they can use it to reveal the source of the images and see the potential use case for the browser extension. 
+This was created to simulate an online news article and has numerous IFrame advert images inserted around the article. When a user has the plugin installed they can use it to reveal the source of the images and see the potential use case for the browser extension. Details of how to install a Google Chrome extension can be found in Section \ref{installPlugin} or from Google Chrome development webpage \url{https://developer.chrome.com/extensions/getstarted#unpacked}. Instructions on how to use the plugin can be found in Section \ref{userGuide}. The section of the webpage that allows simulation is titled Testbed. 
 
-\subsection{In the wild}
-I have used the plugin in a wide variety of webpages across the Internet to gain an idea of its functionality and any potential areas of its functionality which may require its improvement. Images of this testing can be found in the \textit{images} directory of the project. The results of this testing are compiled in Table \ref{internetTesting}. \textbf{Note} some webpages URLs were excessively long, therefore I used the URL shortening service of \url{https://bitly.com/} to compress them for a viewable format in the table. \\
+\subsection{In the wild} \label{ieWild}
+I have used the plugin in a wide variety of webpages across the Internet to gain an idea of its functionality and any potential areas of its functionality which may require improvement. Images of this testing can be found in the \textit{images} directory of the project. The results of this testing are compiled in Table \ref{table:2}. \textbf{Note} some webpages URLs were excessively long, therefore I used the URL shortening service of \url{https://bitly.com/} to compress them for a viewable format in the table. The plugin performance column of the table is an absolute category rating scale as follows: Bad, Poor, Fair, Good, Excellent. The notes column also will contain any exceptional behaviour which will be further discussed in Section \ref{testSummary}. All of the data within table \ref{table:2} was collected on 23/03/16, as discussed in Section \ref{diff} the changing nature and format of these webpages may alter the performance of the plugin. \\
 
 {
 \begin{table} [H]
@@ -773,25 +775,99 @@ I have used the plugin in a wide variety of webpages across the Internet to gain
 % TODO Table: 
 \begin{tabular}{ |p{5cm}|p{5cm}|p{5cm}|  }
 \hline
-\multicolumn{3}{|c|}{Internet Testing Results} \\
+\multicolumn{3}{|c|}{\textbf{Internet Testing Results of IFrame Explorer}} \\
 \hline
-URL & Plugin Performance & Notes \\
+\textbf{URL} & \textbf{Plugin Performance} & \textbf{Notes} \\
 \hline
-\url{www.theguardian.com/uk} & 3 &AFG \\
+\url{www.theguardian.com/uk} & Good & Overlap Menu bar \\
 \hline
-\url{www.independent.co.uk} & 5   & ALA \\
+\url{www.independent.co.uk} & Fair & Box hidden behind menu bar \\
 \hline
-\url{www.express.co.uk} & 5 & ALB \\
+\url{www.express.co.uk} & Excellent & Great performance \\
 \hline
-\url{www.arstechnica.co.uk} & 4 & DZA \\
+\url{www.arstechnica.co.uk} & Poor & Box almost hidden completely by menu bar  \\
 \hline
-\url{bit.ly/1LRt8Vh} & 5 & ASM \\
+\url{bit.ly/1LRt8Vh} & Excellent & Great performance but font does not change colour \\
 \hline
-\url{www.telegraph.co.uk/news} & 3 & AND   \\
+\url{www.telegraph.co.uk/news} & Excellent & Great performance   \\
 \hline
 \end{tabular}
+\caption{Table shows results of using the IFrame Explorer plugin on Internet webpagess.}
+\label{table:2}
 \end{table}
 }
+
+The results of the entire testing process are summarised in the Figure \ref{fig:iePie}. This shows that the majority of the test runs, 58\%, resulted in a positive assessment either Good or Excellent. Whilst nearly a quarter of the test runs, 24.9\%, resulted in a negative assessment either Poor or Bad. The slightly high percentage of negative results can be attributed to the formatting issues discussed in Section \ref{diff}, which I would look to amend as future work. 
+
+\begin{figure} [H]
+    \centering
+    \begin{tikzpicture}
+        \pie[ text = pin, scale font, pos ={8 ,0} , explode =0.1 ] {8.3/Bad, 16.6/Poor, 16.6/Fair, 25/Good, 33/Excellent}
+    \end{tikzpicture}
+        \caption{Summary of the testing results in term}
+        \label{fig:iePie}
+\end{figure}
+
+
+Within the Plugin section of the testbed on my host server there is a gallery of before and after the use of the plugin screenshots. A number of these can also be found in the images directory of the project deliverable. Screenshots of the Express webpage can be seen below Figure \ref{fig:express_before_no_plugin} shows the webpage with the plugin disabled. This is contrasted with Figure \ref{fig:express_after_plugin} which illustrates the results of using the plugin on the webpage. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{express_before_no_plugin.png}
+    \caption{The web page displaying with the plugin disabled}
+    \label{fig:express_before_no_plugin}
+\end{figure}
+
+The numerous adverts on the webpage are replaced with the source attributes of the IFrames they belong to. A more detailed testing table can be found in the Testing Summary Appendix in Section \ref{iETesting}.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{express_after_plugin.png}
+    \caption{The web page after the use of the plugin}
+    \label{fig:express_after_plugin}
+\end{figure}
+
+\section{Testing iFetch}
+In a similar procedure as testing the IFrame explorer plugin I used the testbed on my host server to form the basis of my testing during development. Once I was satisfied with the performance of the iFetch plugin I began to test it on Internet webpages to identify any bugs and test the scalability of the source fetching functionality of the plugin. An example screenshot of the testing process can be seen in Figure \ref{fig:iFetch_screen}.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{iFetch_screen.png}
+    \caption{Using the iFetch plugin on the ars technica webpage}
+    \label{fig:iFetch_screen}
+\end{figure}
+
+Table \ref{table:3} shows the results of this testing. The measurement criteria used for this section of testing was a comparison between the results generated by my plugin to a manual inspection of the HTML source of the webpage, including both the content of the IFrames returned and the total number identified. I had looked to automate this process via using a simple Python web scraping script. Unfortunately, the majority of the IFrames are loaded programatically by JavaScript thus, a traditional web scraping script would not return a full set of results. Therefore, the process had to be conducted manually and was time consuming.
+
+{
+\begin{table} [H]
+\centering
+% TODO Table: 
+\begin{tabular}{ |p{5cm}|p{5cm}|p{5cm}|  }
+\hline
+\multicolumn{3}{|c|}{\textbf{Internet Testing Results of iFetch}} \\
+\hline
+\textbf{URL} & \textbf{No. of IFrames found} & \textbf{No. of IFrames within page} \\
+\hline
+\url{www.theguardian.com/uk} & 9 & 9  \\
+\hline
+\url{www.independent.co.uk} & 23 & 23  \\
+\hline
+\url{www.express.co.uk} & 12 & 12 \\
+\hline
+\url{www.arstechnica.co.uk} & 8 & 8  \\
+\hline
+\url{bit.ly/1LRt8Vh} & 10 & 10 \\
+\hline
+\url{www.telegraph.co.uk/news} & 15 & 15 \\
+\hline
+\end{tabular}
+\caption{Table shows results of using the iFetch plugin on Internet webpagess.}
+\label{table:3}
+\end{table}
+}
+
+In all of the tests conducted the iFetch plugin returned the correct number of IFrames within the page and the content of these IFrames matched the content of the manual inspection. As shown in Table \ref{table:3} the web pages contain a large number of IFrames ranging from the minimum of 8 and a maximum of 23. Further research could be conducted to identify the purpose for the large amount of IFrames within webpages and this may help to uncover some of the tactics discussed earlier in the report or simply a legitimate reason for the number of IFrames. A more detailed testing table can be found in the Testing Summary Appendix in Section \ref{iFetchTesting}.   
 
 \section{Future Work} \label{futureWork}
 % Article with Colin
@@ -835,17 +911,97 @@ However, the genie is effectively out of the bottle; returning privacy to the ha
 
 In comparison to the wealth of information and free content available on the web, targeted advertising is a small price to pay. Personally, I feel that users would feel much more comfortable with the process if it was made more transparent by organisations explaining how their tracking procedure is conducted and allowing users to potentially opt-out. To conclude, whilst the techniques used to generate targeted advertising are insidious, the majority of adverts on the web do not impede web usage, these adverts underpin the majority of the free content on the web so are ultimately beneficial for almost all users of the Internet.
 
-\section{Appendix A: Testing summary}
+\section{Appendix A: Testing summary} \label{testSummary}
 
-\section{Appendix B: Privacy enhancing techniques} \label{appendixA}
-\begin{enumerate}
-    \item Change cookie settings in Chrome: Select the horizontal vertical bars menu, select settings from the drop down menu. Click show advanced settings; under the privacy tab select content settings. In the content settings menu under the cookies header select the option ``Keep local data only until you quit your browser'' and tick the box ``Block third-party cookies and site data" \url{http://bit.ly/1jRXpDq}. 
-    \item Change cookie settings in Firefox: Select the three horizontal bars menu, choose Preferences. Select the Privacy panel, under the History header select the drop down option ``Use custom settings for history", select the Accept cookies from sites, ensure the drop down for the Accept third party cookies is set to ``Never" and the Keep until is set to ``I close Firefox". \url{http://mzl.la/1QulzDX} 
-\end{enumerate}
+\subsection{IFrame Explorer Testing Table}  \label{iETesting}
+Table \ref{table:4} below shows the performance of the IFrame Explorer plugin on a wide range of popular Internet sites. All of the issues in the Notes column relate to formatting or styling issues. In the Sky Sports and Yahoo webpages the boxes for the IFrames were too small such that they looked like a single red line, however with the use of developer tools I could see the correct information of the advert was being displayed within the box and that it was merely a formatting bug which was stopping it from displaying correctly. These formatting errors are my number one priority to improve the plugin in any future work. 
 
-\section{Appendix C: User manual}
+{
+\begin{table} [H]
+\centering
+% TODO Table: 
+\begin{tabular}{ |p{5cm}|p{5cm}|p{5cm}|  }
+\hline
+\multicolumn{3}{|c|}{\textbf{Internet Testing Results of IFrame Explorer}} \\
+\hline
+\textbf{URL} & \textbf{Plugin Performance} & \textbf{Notes} \\
+\hline
+\url{www.theguardian.com/uk} & Good & Overlap Menu bar \\
+\hline
+\url{www.independent.co.uk} & Fair & Box hidden behind menu bar \\
+\hline
+\url{www.express.co.uk} & Excellent & Great performance \\
+\hline
+\url{www.arstechnica.co.uk} & Poor & Box almost hidden completely by menu bar  \\
+\hline
+\url{bit.ly/1LRt8Vh} & Excellent & Great performance but font does not change colour \\
+\hline
+\url{www.telegraph.co.uk/news} & Excellent & Great performance   \\
+\hline
+\url{http://metro.co.uk/} & Good & Text in IFrames is too small \\
+\hline
+\url{http://www.amazon.co.uk/} & Excellent & Great performance but Amazon has few ads  \\
+\hline
+\url{https://www.washingtonpost.com/} & Fair & Text in IFrames is too big \\
+\hline
+\url{http://www.skysports.com/} & Bad & Some frames too small \\
+\hline
+\url{https://uk.yahoo.com/?p=us} & Poor & Similar functionality to sky sports \\
+\hline
+\url{http://www.imdb.com/} & Good & Minor formatting issues \\
+\hline
+\end{tabular}
+\caption{Table shows results of using the IFrame Explorer plugin on Internet webpagess.}
+\label{table:4}
+\end{table}
+}
 
-\subsection{Installing a plugin}
+\subsection{iFetch Testing Table} \label{iFetchTesting}
+A detailed table below shows the performance of the iFetch plugin on a wide range of popular Internet sites. 
+
+{
+\begin{table} [H]
+\centering
+% TODO Table: 
+\begin{tabular}{ |p{5cm}|p{5cm}|p{5cm}|  }
+\hline
+\multicolumn{3}{|c|}{\textbf{Internet Testing Results of iFetch}} \\
+\hline
+\textbf{URL} & \textbf{No. of IFrames found} & \textbf{No. of IFrames within page} \\
+\hline
+\url{www.theguardian.com/uk} & 9 & 9  \\
+\hline
+\url{www.independent.co.uk} & 23 & 23  \\
+\hline
+\url{www.express.co.uk} & 12 & 12 \\
+\hline
+\url{www.arstechnica.co.uk} & 8 & 8  \\
+\hline
+\url{bit.ly/1LRt8Vh} & 10 & 10 \\
+\hline
+\url{www.telegraph.co.uk/news} & 15 & 15 \\
+\hline
+\url{http://metro.co.uk/} & 12 & 12 \\
+\hline
+\url{http://www.amazon.co.uk/} & 4 & 4  \\
+\hline
+\url{https://www.washingtonpost.com/} & 12 & 12 \\
+\hline
+\url{http://www.skysports.com/} & 8 & 8\\
+\hline
+\url{https://uk.yahoo.com/?p=us} & 6 & 6 \\
+\hline
+\url{http://www.imdb.com/} & 7 & 7 \\
+\hline
+\end{tabular}
+\caption{Table shows results of using the iFetch plugin on Internet webpagess.}
+\label{table:5}
+\end{table}
+}
+
+\section{Appendix C: User manual} \label{userman}
+
+\subsection{Installing a plugin} \label{installPlugin}
 To install a plugin in Google Chrome follow the steps below. Note a box with a red border in an image indicates the option to select. 
 
 \begin{enumerate}
@@ -883,6 +1039,16 @@ To install a plugin in Google Chrome follow the steps below. Note a box with a r
         
     \end{enumerate}
 \end{enumerate}
+
+\subsection{How to use the plugins} \label{userGuide}
+Both plugins have a simple and intuitive User Interface (UI). They each have a Browser Action icon, which is placed to the upper right corner of the Google Chrome Browser next to the Menu button, this is shown in Figure \ref{fig:logos}. Upon pressing these icons the functionality of the relevant plugin will execute. \textbf{Note} the IFrame Explorer will replace the content of the IFrame objects with its source attributes therefore they will no longer be on the page if you execute the iFetch plugin. Therefore, if you want to check the number of IFrames or their source execute the iFetch plugin before the IFrame explorer.  
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{logos.png}
+    \caption{The logos of both extensions}
+    \label{fig:logos}
+\end{figure}
 
 \subsection{Online Testbed}
 The online testbed can be accessed from the following URL: 
