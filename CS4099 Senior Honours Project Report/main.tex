@@ -414,7 +414,7 @@ The HTML canvas element is used to draw graphics or animations on a web page uti
 
 Figure \ref{fig:canvas_fingerprinting} illustrates the canvas fingerprinting process. Step 1 shows the text ``Cwm fjordbank glyphs vext quiz” being added to the canvas element of a webpage in two different fonts and using different styling. This text is chosen as it is a perfect pangram, which helps to ensure divergence in results using the shortest possible string to maximise efficiency. Along with the text a simple rectangle image is added to the canvas. Step 2 details the Canvas API’s ToDataURL function being called to convert the canvas pixel data in to a Base64 encoded format known as dataURL. Finally, in step 3 the hash is taken of the encoded data, this hash forms the basis of the fingerprint which can be joined with high-entropy browser properties, such as those shown in Figure \ref{fig:fingerprintingTax} to improve its accuracy. This can then be added to the database containing the profiles of users. \\     
 
-A number of defences against canvas fingerprinting have been considered, such as disabling all canvas pixel extraction, this would prevent any canvas based fingerprinting but this would in turn remove all capabilities and functionality of the canvas element, therefore this is not a viable option. A further method to combat canvas fingerprinting could be to request user approval whenever a canvas extraction is requested by the browser, this technique is already implemented with the HTML5 geolocation APIs. This would therefore disallow illegitimate use at the small cost of the user clicking a permission dialogue \parencite{canvasFP}. A number of plugins to block Canvas Fingerprinintg have also been created CanvasBlocker (\url{https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/} for Mozilla Firefox and CanvasFingerprintBlock (\url{https://chrome.google.com/webstore/detail/canvasfingerprintblock/ipmjngkmngdcdpmgmiebdmfbkcecdndc}) for Google Chrome, although their effectiveness has not been fully explored. \\  
+A number of defences against canvas fingerprinting have been considered, such as disabling all canvas pixel extraction, this would prevent any canvas based fingerprinting but this would in turn remove all capabilities and functionality of the canvas element, therefore this is not a viable option. A further method to combat canvas fingerprinting could be to request user approval whenever a canvas extraction is requested by the browser, this technique is already implemented with the HTML5 geolocation APIs. This would therefore disallow illegitimate use at the small cost of the user clicking a permission dialogue \parencite{canvasFP}. A number of extensions to block Canvas Fingerprinintg have also been created CanvasBlocker (\url{https://addons.mozilla.org/en-US/firefox/addon/canvasblocker/} for Mozilla Firefox and CanvasFingerprintBlock (\url{https://chrome.google.com/webstore/detail/canvasfingerprintblock/ipmjngkmngdcdpmgmiebdmfbkcecdndc}) for Google Chrome, although their effectiveness has not been fully explored. \\  
 
 There is a significant trade-off to eliminating canvas fingerprinting, as browser performance and functionality may also degrade with a number of the measures that can be put in place to restrict this form of tracking \parencite{canvasFP}. The Tor browser has taken extreme steps to limit the ability of fingerprinting software by disabling WebGL although this does not effect the fingerprint obtained through font rendering. Although many privacy activists may continue to attempt to prevent users from being fingerprinted some researchers admit that it may be unavoidable on the modern Internet \parencite{canvasFP}.
 
@@ -489,7 +489,7 @@ While there are a number of approaches which a user can use to improve their pri
 The ever increasing expenditure on online advertising has made it ubiquitous, which in turn has caused consumer discontent at some intrusive and omnipresent advertising. Therefore, browser extensions have been developed to help combat these adverts such as AdBlocker and Adblock Plus, which will remove adverts from webpages, allowing a user to browse without ever seeing adverts. These extensions are complimented by Virtual Private Network (VPN) or Domain Name Service (DNS) solutions which act like a firewall between the web browser and all known Ad Servers. The database of blocked Ad Servers is maintained by a large and active open source community \parencite{adobeAdBlock}. The proportion of Internet users who use the methods described above to block adverts continues to grow strongly as the usage increased by 41\% year on year from (Q2 2014 - Q2 2015) \parencite{adobeAdBlock}. As of June 2015, there were 198 million monthly active users for the major Ad Blocking browser extensions \parencite{adobeAdBlock}. The estimated loss of global advertising revenue due the increase in blocked ads during 2015 was \$21.8 billion \parencite{adobeAdBlock}. \\
 
 % mobile
-This trend of loss in revenue looks set to worsen as the ability to block mobile adverts is now available as an extension purchased from the App Store for Apple's mobile \textit{Safari} browser due to the recent iOS 9 update, following the previously available Ad Blocking services on the Android mobile operating system. Although mobile Ad Blocking is yet to be a factor in the rise of Ad Blocking growth, in Q2 2015 mobile accounted for 38\% of all web browsing, however only a tiny proportion of 1.6\% of Ad block traffic on the PageFair network was from mobile devices \parencite{adobeAdBlock}. Although the amount of Ad Blocking occurring on mobile devices is trivial at the moment, the publicity boost of the recent update to iOS will draw more attention to mobile Ad Blocking and may act as catalyst for  much larger Ad Blocking growth. Mobile Ad Blocking has also been implemented at the network layer as the European mobile phone provider Three has stated that it will implement technology to block 95\% of banner and pop-up ads utilising a process developed by Shine Technologies. This represents a seismic development in the Ad Blocking debate, as Three state their objective is not to eliminate mobile advertising but to give customers more control, choice and greater transparency over what they receive. They express their three principles are: users should not pay data charges to receive adverts, these should be costs borne by the advertiser; customer's privacy and security must be fully protected, some advertisers use mobile ads to extract and exploit data about customers without their knowledge or consent; customers should receive adverts that are interesting to them and not to have their data experience in mobile degraded by excessive, intrusive, unwanted or irrelevant adverts \parencite{threeAdBlock}. In contrast to this view, the Internet Advertising Bureau (IAB) has warned this could result in users paying for content that was previously free due to the loss of advertising funding. Mobile is an ever increasing percentage of web browsing and as you can now block ads on the two most popular mobile operating systems in conjunction with a  mobile network implementing whole-scale Ad Blocking means that there is a larger potential than ever for adverts to be blocked by users, which could have far-reaching consequences on the ecosystem of the Internet.  \\
+This trend of loss in revenue looks set to worsen as the ability to block mobile adverts is now available as an extension purchased from the App Store for Apple's mobile \textit{Safari} browser due to the recent iOS 9 update, following the previously available Ad Blocking services on the Android mobile operating system. Although mobile Ad Blocking is yet to be a factor in the rise of Ad Blocking growth, in Q2 2015 mobile accounted for 38\% of all web browsing, however only a tiny proportion of 1.6\% of Ad block traffic on the PageFair network was from mobile devices \parencite{adobeAdBlock}. Although the amount of Ad Blocking occurring on mobile devices is trivial at the moment, the publicity boost of the recent update to iOS will draw more attention to mobile Ad Blocking and may act as catalyst for  much larger Ad Blocking growth. Mobile Ad Blocking has also been implemented at the network layer as the European mobile phone provider Three has stated that it will implement technology to block 95\% of banner and pop-up ads utilising a process developed by Shine Technologies. This represents a seismic development in the Ad Blocking debate, as Three state their objective is not to eliminate mobile advertising but to give customers more control, choice and greater transparency over what they receive. They express their three principles are: users should not pay data charges to receive adverts, these should be costs borne by the advertiser; customer's privacy and security must be fully protected, some advertisers use mobile ads to extract and exploit data about customers without their knowledge or consent; customers should receive adverts that are interesting to them and not to have their data experience in mobile degraded by excessive, intrusive, unwanted or irrelevant adverts \parencite{threeAdBlock}. In contrast to this view, the Internet Advertising Bureau (IAB UK) has warned this could result in users paying for content that was previously free due to the loss of advertising funding. Mobile is an ever increasing percentage of web browsing and as you can now block ads on the two most popular mobile operating systems in conjunction with a  mobile network implementing whole-scale Ad Blocking means that there is a larger potential than ever for adverts to be blocked by users, which could have far-reaching consequences on the ecosystem of the Internet.  \\
 
 \begin{figure} [H]
     \centering
@@ -574,7 +574,7 @@ The ANA has a number of suggestions about how to combat Bot fraud especially in 
 \subsection{Primary}
 The primary requirements for the project are detailed below:
 \begin{itemize}
-    \item Produce a browser plugin to expose the Source and ID properties of an IFrame advertisement in the context of the host page.
+    \item Produce a browser extension to expose the Source and ID properties of IFrame advertisements in the context of the host page.
     \item Create clear documentation about the different entities and how they interact with one another during the targeted advertising process.
     \item Create a centralised resource containing information about all areas of targeted advertising.
     \item Provide a detailed account of the various methods of stateful tracking and stateless fingerprinting used to track and build profiles of users for the purpose of targeted advertising.
@@ -583,14 +583,16 @@ The primary requirements for the project are detailed below:
 \subsection{Secondary}
 The secondary requirements are as follows:
 \begin{itemize}
-    \item Produce a browser plugin which exposes all IFrames on a page. Presenting the output in a readable manner including a count of the number of IFrames, search and copying functionality. 
-    \item Create a glossary of frequently used terms in the online advertising industry.
+    \item Produce a browser extension which exposes all IFrames on a page. Presenting the output in a readable manner including a count of the number of IFrames, search and copying functionality. 
     \item Discuss the effects of ``Ad Blocking". 
+    \item Propose defences that a user could utilise to mitigate the effects of tracking and profiling.
+    \item Create a glossary of frequently used terms in the online advertising industry.
 \end{itemize}
 
 \subsection{Tertiary}
 \begin{itemize}
     \item Include a discussion of the various methods of advertising fraud.
+    \item Discuss the future of tracking and profiling.
 \end{itemize}
 
 \section{Ethics}
@@ -601,9 +603,9 @@ Since this project does not use any personal or classified information and did n
 \section{Design}
 
 \subsection{Design of IFrame Explorer}
-For the implementation section of this project, I had envisaged with the support of my supervisor and an industry expert to create a browser plugin which could be of use when exploring adverts displayed on a web-page.  \\
+For the implementation section of this project, I had envisaged with the support of my supervisor and an industry expert to create a browser extension which could be of use when exploring adverts displayed on a web-page.  \\
 
-The plugin would be used to detect advertising IFrames within a page and then overlay the HTML source of the IFrame object over the image of the advert. This idea can be seen below in a diagrammatic example in Figure \ref{fig:mockup}. 
+The extension would be used to detect advertising IFrames within a page and then overlay the HTML source of the IFrame object over the image of the advert. This idea can be seen below in a diagrammatic example in Figure \ref{fig:mockup}. 
 
 \begin{figure}[H]
     \begin{subfigure}{0.3\textwidth}
@@ -616,21 +618,21 @@ The plugin would be used to detect advertising IFrames within a page and then ov
         \caption{The web page with the adverts source placed ontop of the advert}
         \label{fig:siteWithAdSource}
     \end{subfigure}
-    \caption{The effect of the plugin shown on a web page.}
+    \caption{The effect of the extension shown on a web page.}
     \label{fig:mockup}
 \end{figure}
 
-I chose to develop the plugin for the Chrome browser, largely due to input from the industry expert as well as the usage statistics on web browsers that showed Google Chrome had the largest browser market share of 67.4\% in November 2015 \parencite{browserStats}. The Chrome extensions platform offers a wealth of APIs which would be of use throughout development. \\
+I chose to develop the extension for the Chrome browser, largely due to input from the industry expert as well as the usage statistics on web browsers that showed Google Chrome had the largest browser market share of 67.4\% in November 2015 \parencite{browserStats}. The Chrome extensions platform offers a wealth of APIs which would be of use throughout development. \\
 
 \subsection{Design of iFetch}
-Along with this plugin I felt it was necessary to have a way for a user to view, search and copy the IFrames available of a web page. Therefore I designed a second plugin, which would be used to display this information to the user. \\
+Along with this extension I felt it was necessary to have a way for a user to view, search and copy the IFrames available on a web page. Therefore I designed a second extension, which would be used to display this information to the user. \\
 
 I felt a popup window was the most suitable method to display this information to the user, therefore I planned that when a user pressed the browser action button a popup would display this information to the user, allowing them to both search and copy the information in case it required further processing. This can be seen diagrammatically in Figure \ref{fig:AE_Mockup}.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{AE_Mockup.png}
-    \caption{The iFetch plugin showing the source of IFrames on a page}
+    \caption{The iFetch extension showing the source of IFrames on a page}
     \label{fig:AE_Mockup}
 \end{figure}
 
@@ -639,7 +641,7 @@ These tools were designed to be of use to both the industry expert and an everyd
 \subsection{Methodologies Utilised}
 To ensure accountability and relevance throughout the development process, back-up copies of my work and notes on how well it was meeting the requirements defined by both my supervisor and the industry expert were maintained. Techniques from professional software development approaches and strict version control were used. \\
 
-For general project management I created a Scrum Board which I used to delegate tasks relating to all areas of the development and reporting of the project. I split the project into three section ``TODO" which could be formalised as the product backlog, ``In Progress" which included all tasks I was currently working on and ``Done" which included all tasks completed within the project. An example of the board during development can be seen in Figure \ref{fig:Project_Board}. This was a very useful tool throughout development as it allowed me to delegate my time as efficiently as possible, whilst ensuring that I had clear view on the goals and direction of the project for the entirety of the project.
+For general project management I created a Scrum Board which I used to delegate tasks relating to all areas of the development and reporting of the project. I split the project into three sections ``TODO" which could be formalised as the product backlog, ``In Progress" which included all tasks I was currently working on and ``Done" which included all tasks completed within the project. An example of the board during development can be seen in Figure \ref{fig:Project_Board}. This was a very useful tool throughout development as it allowed me to delegate my time as efficiently as possible, whilst ensuring that I had clear view on the goals and direction of the project for the entirety of the project.
 
 \begin{figure}[H]
     \centering
@@ -666,9 +668,9 @@ Throughout the project I set minor deadlines on the research that forms the basi
 To ensure I had a form of redundancy in case of a disaster scenario I used the distributed version control system Git to ensure the safety of my project's software. I used Git because I had a large amount of prior experience with the platform as I had used it throughout my university career but most specifically during the third year group project. I had considered using Mercurial, however I felt I was more accustom to Git and preferred it to Mercurial. I chose to manage my code base on a private GitHub repository, as Github offers the most informative and intuitive GUI for repository management. Although it could be argued that this was a risky decision, due to the fact that GitHub is a private company who could potentially remove their services at any time, whereas I could have used the schools Mercurial server. A vast majority of popular open source software is hosted on GitHub, for example the Linux Kernel, therefore the chances of this happening are very remote.  Also since Git is distributed by design if GitHub became unavailable, the local copy of the repository could easily be utilised to create a backup on another server, ensuring I never lose access to the code.
 
 \subsection{Architecture of a Google Chrome Extension}
-A Google chrome extension is a collection of files— HTML, CSS, JavaScript, JQuery, images, and anything else that adds functionality to the Google Chrome browser. There are numerous different browser extension user interfaces, both plugins developed for this project make use of the Browser Action interface, which allows a clickable icon to the right hand side of the address bar next to the menu bar which is represented as three horizontal bars. \\
+A Google chrome extension is a collection of files— HTML, CSS, JavaScript, JQuery, images, and anything else that adds functionality to the Google Chrome browser. There are numerous different browser extension user interfaces, both extensions developed for this project make use of the Browser Action interface, which allows a clickable icon to the right hand side of the address bar next to the menu bar which is represented as three horizontal bars. \\
 
-A valid Google chrome extension must have a manifest file which is represented in JSON and may contain optional elements such as: one or more HTML files, JavaScript files and any other files that extension may make use of such as images. \\
+A valid Google chrome extension must have a manifest file which is represented in JSON and may contain optional elements such as: HTML files, JavaScript files and any other files that extension may make use of such as images. \\
 
 \begin{figure}[H]
     \centering
@@ -682,10 +684,10 @@ The manifest file, \textit{manifest.json}, is used to provide information to Goo
 \subsection{Architecture of IFrame Explorer}
 The first extension produced for this project contains a background page called \textit{background.js}. This is an invisible page running in the background which is utilised to set an \textit{onClickListener} for the browser action icon. Once this icon is clicked the extension will execute a JavaScript file and then in the callback function to this operation execute a further JavaScript file. The first script called \textit{jquery.js} is used to inject JQuery, the popular JavaScript library, into the current tab's page, then in the call back from this the script, \textit{iframe\_explorer.js}, containing the IFrame exploration logic is executed. \\
 
-A content script, called \textit{highlight.js} is also utilised to perform the highlighting of the IFrame objects with a red border. Content scripts are requried to interact with web pages that the user loads (as opposed to pages that are included in the extension), content scripts are discussed in more detail in Section \ref{Content_Scripts}. 
+A content script, called \textit{highlight.js} is also utilised to perform the highlighting of the IFrame objects with a red border. Content scripts are run in the context of the host page for any page which matches the pattern defined in the manifest file. These files are discussed in more detail in Section \ref{Content_Scripts}. 
 
 \subsection{Architecture of iFetch}
-The second Google chrome extension created for this project is called iFetch and it is utilised to provide all IFrame source within a page in centralised searchable and easy to use manner. When clicked upon the popup displayed will detail all of the IFrames on a web page, these can then be searched using the search bar and if any IFrames exist the list of them can be copied, by using the copy icon, so that they can be utilisd in another program. \\
+The second Google chrome extension created for this project is called iFetch and it is utilised to provide the source of all IFrame objects within a page in centralised searchable and easy to use manner. When clicked upon the popup displayed will detail all of the IFrames on a web page, these can then be searched using the search bar and if any IFrames exist the list of them can be copied, by using the copy icon, so that they can be utilised in another program. \\
 
 This extension includes a script called \textit{popup2.js}. Which is run once the user clicks on the browser action icon and is utilised to handle the user initiated events such as the searching the IFrames within the page and copying the list of IFrames by clicking the copy icon. \\
 
@@ -698,15 +700,15 @@ Within the extension package, a file \textit{popup.html} exists which is the HTM
 
 \subsection{Content Scripts} \label{Content_Scripts}
 % Content Scripts
-The use of content scripts is crucial for the application as they facilitate the plugin to edit the current web page once it is loaded. By design content scripts run in the context of web pages loaded by the browser. Content scripts execute in a special environment called an ``isolated world". They have access to the DOM of the page they are injected into, but not to any JavaScript variables or functions created by the page. \\ 
+The use of content scripts is crucial for the IFrame Explorer extension as they facilitate it to edit the current web page once it is loaded. By design content scripts run in the context of web pages loaded by the browser. Content scripts execute in a special environment called an ``isolated world". They have access to the DOM of the page they are injected into, but not to any JavaScript variables or functions created by the page. \\ 
 
-They facilitated my plugin to programmatically inject JavaScript into the browser loaded webpages, utilising the Google Chrome \textit{tabs.executeScript} API, I was then able to programatically inject a script which utilises JQuery CSS functionality to highlight all IFrame objects with a red border and then to execute a script which on the click of the Browser Action button, will replace the IFrame advert with the objects id and src (source) attributes.  \\
+A content script facilitated the extension to programmatically inject JavaScript into the browser loaded webpages, utilising the Google Chrome \textit{tabs.executeScript} API. The injected script utilises JQuery CSS functionality to highlight all IFrame objects with a red border and then to execute a script which on the click of the Browser Action button, will replace the IFrame advert with the objects id and src (source) attributes.  \\
 
 % Security with content scripts
 This process of inserting scripts may sound like a potential security flaw and as extensions may carry personal sensitive information there is a mechanism in place to ensure the safety of this data for extension users. The structure of the web pages Document Object Model (DOM) is shared between all scripts active on the webpage, e.g. scripts that have been placed on the web page by the owner, along with any scripts inserted into it by a content script. However each script operates in its own isolated world, which contains its own clean JavaScript environment which ensures that libraries and scripts do not conflict with one another. Many isolated worlds may operate on the same shared DOM tree but as security precaution they each get their own compliment of JavaScript objects to represent the tree. As no JavaScript objects are shared between these isolated worlds it is not possible for webpage scripts to use the shared DOM to become free of the normal web browser sandbox and somehow get access to the content script or any of the powerful APIs available to the extension. 
 
 \subsection{Use of JQuery}
-I chose to use the JavaScript library JQuery in this project as it is a fast and lightweight framework that facilitates easier HTML document traversal/manipulation and event handling than pure JavaScript. It also has an easy-to-use API with a small learning curve although its syntax is different to JavaScript, examples of the same functionality can be seen in JavaScript in Listing \ref{jsExample} and in JQuery in Listing \ref{jqExample}. As shown by the two examples, JQuery offers a much more concise version of the functionality and it also makes some processes such as changing the CSS attributes of an element much simpler than with traditional JavaScript. A further reason for choosing  JQuery is that it has been developed with cross-browser functionality at forefront of its  implementation, therefore in future if I looked to extend my project the source code would be highly portable to a variety of applicants and web browsers. 
+I chose to use the JavaScript library JQuery in this project as it is a fast and lightweight framework that facilitates easier HTML document traversal/manipulation and event handling than pure JavaScript. It also has an easy-to-use API with a small learning curve although its syntax is different to JavaScript, examples of the same functionality can be seen in JavaScript in Listing \ref{jsExample} and in JQuery in Listing \ref{jqExample}. As shown by the two examples, JQuery offers a much more concise version of the functionality and it also makes some processes such as changing the CSS attributes of an element much simpler than with traditional JavaScript. A further reason for choosing  JQuery is that it has been developed with cross-browser functionality at forefront of its  implementation, therefore in future if I looked to extend my project the source code would be highly portable to a variety of applications and web browsers. 
 
 \begin{lstlisting}[caption=Setting the onClick functionality of button in JavaScript, label={jsExample}]
 document.getElementById("button1").addEventListener("click", function(){ 
@@ -723,16 +725,32 @@ $("#button1").click(function(){ alert("Hello"); });
 \section{Implementation}
 
 \subsection{IFrame Explorer}
-It was difficult to develop the IFrame Explorer plugin as numerous approaches I took to expose the source of the IFrames resulted in development being halted by security measured  placed on the browser such as the Same Origin Policy and Cross-site scripting (XSS). Therefore a significant proportion of my development time was taken up by attempts to circumvent these security restrictions, until I found that they may be ignored by Content Scripts enabled within a Google Chrome extension. Even with content scripts finding a way to operate the JQuery library in the context of an extension whilst also injecting my script to perform the changes took a large amount of time. This process is complicated as it involves a bit of indirection such that the JQuery script must be executed to first, so that the JQuery methods are avaliable in the second script, so that it can function as intended. Whilst this may seem relatively trivial after development, it is a bespoke problem in such that there was little documentation regrading how to go about this problem and it took up a large amount of my time to research and implement this functionality, with frequent trial and error approaches. \\
+It was difficult to develop the IFrame Explorer extension as numerous approaches I took to expose the source of the IFrames resulted in development being halted by security measures placed on the browser such as the Same Origin Policy and Cross-site scripting (XSS). Therefore a significant proportion of my development time was taken up by attempts to circumvent these security restrictions, until I found that they may be ignored by Content Scripts enabled within a Google Chrome extension. Even with content scripts finding a way to operate the JQuery library in the context of an extension whilst also injecting my script to perform the changes took a large amount of time. This process is complicated as it involves a bit of indirection such that the JQuery script must be executed first, so that the JQuery methods are avaliable in the second script, so that it can function as intended. Whilst this may seem relatively trivial after development, it is a bespoke problem in such that there was little documentation regrading how to go about this problem and it took up a large amount of my time to research and implement this functionality, with frequent trial and error approaches. \\
 
-During development, I became aware that to place the IFrame attributes over the image of the advert lead to unclear results as the image attracted attention away from the attributes and in some cases obscured them completely. I therefore deviated slightly from design in that the plugin replaces the IFrame image with its source attributes. Therefore the advert will be replaced with a red box including the IFrame source and id values. \\
+During development, I became aware that to place the IFrame attributes over the image of the advert lead to unclear results as the image attracted attention away from the attributes and in some cases obscured them completely. I therefore deviated slightly from design in that the extension replaces the IFrame image with its source attributes. Therefore the advert will be replaced with a red box including the IFrame source and id values. \\
 
-The combination of both plugins will hopefully form the basis of a framework that users can benefit from, regardless of whether they are within the online advertising industry or external to the industry. In particular, the novel interface of the IFrame Explorer is something I am proud of as it replaces all the IFrames on a web page with their respective attributes with the click of one button. However, the plugins are not perfect and I have outlined my plans to improve them in the future in Section \ref{futureWork}.  
+Screenshots of the Express webpage \url{http://www.express.co.uk/} can be seen below Figure \ref{fig:express_before_no_plugin} shows the webpage with the extension disabled. This is contrasted with Figure \ref{fig:express_after_plugin} which illustrates the results of using the extension on the webpage. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{express_before_no_plugin.png}
+    \caption{The web page displaying with the extension disabled}
+    \label{fig:express_before_no_plugin}
+\end{figure}
+
+The numerous adverts on the webpage are replaced with the source attributes of the IFrames they belong to.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{express_after_plugin.png}
+    \caption{The web page after the use of the extension}
+    \label{fig:express_after_plugin}
+\end{figure}
 
 \subsection{iFetch}
-Firstly, I began development of the iFetch plugin, detailing the attributes of the IFrame objects in a centralised searchable manner via the popup page. As discussed in the design of this plugin, I attempted to be as modular as possible, fitting each of the distinct areas of functionality into one JavaScript file, as I felt this would enhance the portability of the code as if I had to utilise the code in other areas of the project then this would be easily accomplished due to the loose coupling of the components. \\
+I began development of the iFetch extension by detailing the attributes of the IFrame objects in a centralised searchable manner via the popup page. As discussed in the design of this extension, I attempted to be as modular as possible, fitting each of the distinct areas of functionality into one JavaScript file, as I felt this would enhance the portability of the code as if I had to utilise the code in other areas of the project then this would be easily accomplished due to the loose coupling of the components. Once I had tested to ensure the IFrames were appearing correctly and in a readable manner, I began to implement the search functionality. The search function is a regular expression which is used to pattern match each of the IFrame objects to identify if any contain the user supplied search term, each IFrame that contains the term is then returned to the user and those that do not are omitted from the results. The copy functionality makes use of the \textit{document.execCommand} API, when the parameter ``copy" is passed into this function the text within a predefined area is copied to the user's clipboard. \\
 
-The development of this section of the project largely went to schedule, although it did take me some time to familiar with the Google Chrome extension platform and some of the best practises when developing in this environment. Figure \ref{fig:iFetch_impl} shows the output of running iFetch on the \url{http://www.theguardian.com/uk}. There are 10 IFrames on the guardian page which could be searched, copied and inspected by a user of the plugin. This method of interaction is extremely faster than a user having to open developer tools within their browser and trying to find each of the IFrames within the vast amount of source code a modern web page would have. This is of strong use to those involved in the online advertising industry, including the industry expert, and user's who are interested where an IFrame originates from.     
+The development of this section of the project largely went to schedule, although it did take me some time to familiar with the Google Chrome extension platform and some of the best practises when developing in this environment. Figure \ref{fig:iFetch_impl} shows the output of running iFetch on the \url{http://www.theguardian.com/uk}. There are 10 IFrames on the guardian page which could be searched, copied and inspected by a user of the extension. This method of interaction is much faster than a user having to open developer tools within their browser and trying to find each of the IFrames within the vast amount of source code a modern web page would have. This functionality is of strong use to those involved in the online advertising industry, including the industry expert's organisation, and user's who are interested where an IFrame originates from.     
 
 \begin{figure}[H]
     \centering
@@ -741,17 +759,19 @@ The development of this section of the project largely went to schedule, althoug
     \label{fig:iFetch_impl}
 \end{figure}
 
-I achieved all of the requirements set out for this plugin and the human readable representation of the IFrame data is a novel approach to fetching the related source code of the web page.
+I achieved all of the requirements set out for this extension and the readable representation of the IFrame data is a novel approach to fetching the related source code of the web page. \\
+
+The combination of both extensions will hopefully form the basis of a framework that users can benefit from, regardless of whether they are within the online advertising industry or external to the industry. In particular, the novel interface of the IFrame Explorer is something I am proud of as it replaces all the IFrames on a web page with their respective attributes with the click of one button. However, the extensions are not perfect and I have outlined my plans to improve them in the future in Section \ref{futureWork}.  
 
 \subsection{Difficulties} \label{diff}
 % Time to decide on deliverable
-It took longer than expected to identify a potential deliverable for this project. This was largely  due to targeted advertising being a secretive and poorly documented area. Furthermore I particularly wanted to create a deliverable that would add business value to my industry contact rather than re-creating something that exists already, I wanted to create something novel. This meant whilst conducting the research of this niche area, which forms the basis of this report, my supervisor and I were investigating  what could be of potential use in industry, this provided a significant development challenge for this project. \\
+It took longer than expected to identify a potential deliverable for this project. This was largely  due to targeted advertising being a secretive and poorly documented area. Furthermore, I particularly wanted to create a deliverable that would add business value to my industry contact's organisation rather than re-creating something that exists already, I wanted to create something novel. This meant whilst conducting the research of this niche area, which forms the basis of this report, my supervisor and I were investigating  what could be of potential use in industry, this provided a significant development challenge for this project. \\
 
 % Lack of documentation
-There was a large number of development difficulties with this project, as there is a distinct lack of documentation regarding how to interact with advertising IFrames. This is largely due to the fact that online advertising is a secretive business as the revenues are largely dependent upon these IFrame adverts. Accordingly a significant amount of time throughout this project was spent researching and documenting potential approaches which may have achieved the aim to expose the source and id of IFrame objects via the means of a browser extension. The plugin I produced is unique, to my knowledge there has never been a project to reveal the source of IFrames before. Due to the novel nature of the project and the lack of documentation in a majority of the areas development time was cut short due to disproportional amount of research which had to be conducted to understand the inner workings of online advertising. \\
+There was a large number of development difficulties with this project, as there is a distinct lack of documentation regarding how to interact with advertising IFrames. This is largely due to the fact that online advertising is a secretive business as the revenues are largely dependent upon these IFrame adverts. Accordingly a significant amount of time throughout this project was spent researching and documenting potential approaches which may have achieved the aim to expose the source and id of IFrame objects via the means of a browser extension. The extension I produced is unique, to my knowledge there has never been a project to reveal the source of IFrames before. Due to the novel nature of the project and the lack of documentation in a majority of the areas development time was cut short due to disproportional amount of research which had to be conducted to understand the inner workings of online advertising. \\
 
 % Web pages formatting Add a figure of a bad example 
-A further difficulty when developing this plugin, was the variety of formatting applied to webpages on the Internet. The web has become rich with a variety of formatting utilising both Cascading Style Sheets (CSS) and JavaScript. When trying to standardise my plugin for the varying formats of these pages I found that I was often left with overlapping or obscured boxes due to the formatting of the host webpage. These formatting issues sometimes made the text unreadable when placed on the host webpage, although in most cases the text could be seen and copied even if a small section was obscured by elements of the host page. An example of this can be seen in Figure \ref{fig:ie_overlap_diff}, whilst the text of this IFrame box is visibly obscured the text can still be highlighted and copied by the user, using right-click copy functionality. This has the knock on effect that my plugin works effectively on a large range of web pages however due to the formatting on others its functionality is infrequently inhibited. I tried numerous methods to help detect this poor formatting, however they did not significantly improve the positioning of the exposed IFrame objects. This is a general problem of developing applications for the Internet, in that it may work in a majority of cases but not in every. I wanted the position of the IFrames to remain largely relative to where they were before use of the plugin, to ensure the user gets a better idea of the position of the objects in relation to the host page. So to ensure that they are always visible, do not overlap and remain in the original position is all but impossible. However,  in the future, I would look to improve this by a form of compromise, which will show the position of overlapping frames and attempt to keep all information within the IFrame boxes visible. \\
+A further difficulty when developing the IFrame Explorer extension, was the variety of formatting applied to webpages on the Internet. The web has become rich with a variety of formatting utilising both Cascading Style Sheets (CSS) and JavaScript. When trying to standardise my extension for the varying formats of these pages I found that I was often left with overlapping or obscured boxes due to the formatting of the host webpage. These formatting issues sometimes made the text unreadable when placed on the host webpage, although in most cases the text could be seen and copied even if a small section was obscured by elements of the host page. An example of this can be seen in Figure \ref{fig:ie_overlap_diff}, whilst the text of this IFrame box is visibly obscured the text can still be highlighted and copied by the user, using right-click copy functionality. This has the knock on effect that my extension works effectively on a large range of web pages however due to the formatting on others its functionality is infrequently inhibited. I tried numerous methods to help detect this poor formatting, however they did not significantly improve the positioning of the exposed IFrame objects. This is a general problem of developing applications for the Internet, in that it may work in a majority of cases but not in every. I wanted the position of the IFrames to remain largely relative to where they were before use of the extension, to ensure the user gets a better idea of the position of the objects in relation to the host page. So to ensure that they are always visible, do not overlap and remain in the original position is all but impossible. However,  in the future, I would look to improve this by a form of compromise, which will show the position of overlapping frames and attempt to keep all information within the IFrame boxes visible. \\
 
 \begin{figure}[H]
     \centering
@@ -760,26 +780,26 @@ A further difficulty when developing this plugin, was the variety of formatting 
     \label{fig:ie_overlap_diff}
 \end{figure}
 
-I would have liked to extend both plugins further offering more functionality, however this was not possible given the time scale of the project and difficulties discussed within this section. The main areas in which I would like to extend the project in such as the plugin and research are discussed in Section \ref{futureWork}.
+I would have liked to extend both extensions further offering more functionality, however this was not possible given the time scale of the project and difficulties discussed within this section. The main areas in which I would like to extend the project in discussed in Section \ref{futureWork}.
 
 \pagebreak
 
 \section{Testing}
-Unlike a traditional program which may prove its desired functionality via extensive unit testing and potentially formal verification. These approaches do not lend themselves easily to testing a browser extension which is concerned with implementing changes to appearance of a host webpage. I felt that these forms of testing should be secondary to usability testing of the extension. Thus, I decided to separate the testing into two distinct areas, firstly I created a testbed on my school host server, which I used throughout development to ensure the requirements of the plugin were met. Secondly, I carried out numerous tests on popular web pages on the Internet to see how well the plugin would scale in a real world use case. 
+Unlike a traditional program which may prove its desired functionality via extensive unit testing and potentially formal verification. These approaches do not lend themselves easily to testing a browser extension which is concerned with implementing changes to appearance of a host webpage. I felt that these forms of testing should be secondary to usability testing of the extension. Thus, I decided to separate the testing into two distinct areas, firstly I created a testbed on my school host server, which I used throughout development to ensure the requirements of the extensions were met. Secondly, I carried out numerous tests on popular web pages on the Internet to see how well the extensions would scale in a real world use case. 
 
 \subsection{Testing IFrame Explorer}
 
 \subsubsection{Testbed}
-I have created an online webpage which has information about the IFrame Exploration plugin and can be used as a local testbed to demonstrate the functionality of the plugin. I created this to showcase the functionality of the plugin and to ensure a repeatable testing process that a marker could utilise. The testbed can be found at the following URL: 
+I have created an online webpage which has information about the IFrame Exploration extension and can be used as a local testbed to demonstrate the functionality of the extension. I created this to showcase the functionality of the extension and to ensure a repeatable testing process that a marker could utilise. The testbed can be found at the following URL: 
 
 \begin{center}
 \url{https://ms255.host.cs.st-andrews.ac.uk/SH/index.html}
 \end{center}
 
-This was created to simulate an online news article and has numerous IFrame advert images inserted around the article. When a user has the plugin installed they can use it to reveal the source of the images and see the potential use case for the browser extension. Details of how to install a Google Chrome extension can be found in Section \ref{installPlugin} or from Google Chrome development webpage \url{https://developer.chrome.com/extensions/getstarted#unpacked}. Instructions on how to use the plugin can be found in Section \ref{userGuide}. The section of the webpage that allows simulation is titled Testbed. 
+This was created to simulate an online news article and has numerous IFrame advert images inserted around the article. When a user has the extension installed they can use it to reveal the source of the images and see the potential use case for the browser extension. Details of how to install a Google Chrome extension can be found in Section \ref{installPlugin} or from Google Chrome development webpage \url{https://developer.chrome.com/extensions/getstarted#unpacked}. Instructions on how to use the extension can be found in Section \ref{userGuide}. The section of the webpage that allows simulation is titled Testbed. 
 
 \subsubsection{In the wild} \label{ieWild}
-I have used the plugin in a wide variety of webpages across the Internet to gain an idea of its functionality and any potential areas of its functionality which may require improvement. Images of this testing can be found in the \textit{images} directory of the project. The results of this testing are compiled in Table \ref{table:2}. \textbf{Note} some webpages URLs were excessively long, therefore I used the URL shortening service of \url{https://bitly.com/} to compress them for a viewable format in the table. The plugin performance column of the table is an absolute category rating scale as follows: Bad, Poor, Fair, Good, Excellent. The notes column also will contain any exceptional behaviour which will be further discussed in Section \ref{testSummary}. All of the data within table \ref{table:2} was collected on 23/03/16, as discussed in Section \ref{diff} the changing nature and format of these webpages may alter the performance of the plugin. \\
+I have used the extension in a wide variety of webpages across the Internet to gain an idea of its functionality and any potential areas of its functionality which may require improvement. Images of this testing can be found in the \textit{images} directory of the project. The results of this testing are compiled in Table \ref{table:2}. \textbf{Note} some webpages URLs were excessively long, therefore I used the URL shortening service of \url{https://bitly.com/} to compress them for a viewable format in the table. The extension performance column of the table is an absolute category rating scale as follows: Bad, Poor, Fair, Good, Excellent. The notes column also will contain any exceptional behaviour which will be further discussed in Section \ref{testSummary}. All of the data within Table \ref{table:2} was collected on 23/03/16, as discussed in Section \ref{diff} the changing nature and format of these webpages may alter the performance of the extension. \\
 
 {
 \begin{table} [H]
@@ -789,7 +809,7 @@ I have used the plugin in a wide variety of webpages across the Internet to gain
 \hline
 \multicolumn{3}{|c|}{\textbf{Internet Testing Results of IFrame Explorer}} \\
 \hline
-\textbf{URL} & \textbf{Plugin Performance} & \textbf{Notes} \\
+\textbf{URL} & \textbf{extension Performance} & \textbf{Notes} \\
 \hline
 \url{www.theguardian.com/uk} & Good & Overlap Menu bar \\
 \hline
@@ -804,12 +824,12 @@ I have used the plugin in a wide variety of webpages across the Internet to gain
 \url{www.telegraph.co.uk/news} & Excellent & Great performance   \\
 \hline
 \end{tabular}
-\caption{Table shows results of using the IFrame Explorer plugin on Internet webpages. The potential scores are: Bad, Poor, Fair, Good, Excellent}
+\caption{Table shows results of using the IFrame Explorer extension on Internet webpages. The potential scores are: Bad, Poor, Fair, Good, Excellent}
 \label{table:2}
 \end{table}
 }
 
-The results of the entire testing process are summarised in the Figure \ref{fig:iePie}. This shows that the majority of the test runs, 58\%, resulted in a positive assessment either Good or Excellent. Whilst nearly a quarter of the test runs, 24.9\%, resulted in a negative assessment either Poor or Bad. The slightly high percentage of negative results can be attributed to the formatting issues discussed in Section \ref{diff}, which I would look to amend as future work. 
+A more detailed testing table can be found in the Testing Summary Appendix in Section \ref{iETesting}. The results of the entire testing process are summarised in the Figure \ref{fig:iePie}. This shows that the majority of the test runs, 58\%, resulted in a positive assessment either Good or Excellent. Whilst nearly a quarter of the test runs, 24.9\%, resulted in a negative assessment either Poor or Bad. The slightly high percentage of negative results can be attributed to the formatting issues discussed in Section \ref{diff}, which I would look to amend as future work. 
 
 \begin{figure} [H]
     \centering
@@ -821,37 +841,21 @@ The results of the entire testing process are summarised in the Figure \ref{fig:
 \end{figure}
 
 
-Within the Plugin section of the testbed on my host server there is a gallery of before and after the use of the plugin screenshots. A number of these can also be found in the images directory of the project deliverable. Screenshots of the Express webpage can be seen below Figure \ref{fig:express_before_no_plugin} shows the webpage with the plugin disabled. This is contrasted with Figure \ref{fig:express_after_plugin} which illustrates the results of using the plugin on the webpage. 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{express_before_no_plugin.png}
-    \caption{The web page displaying with the plugin disabled}
-    \label{fig:express_before_no_plugin}
-\end{figure}
-
-The numerous adverts on the webpage are replaced with the source attributes of the IFrames they belong to. A more detailed testing table can be found in the Testing Summary Appendix in Section \ref{iETesting}.  
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\textwidth]{express_after_plugin.png}
-    \caption{The web page after the use of the plugin}
-    \label{fig:express_after_plugin}
-\end{figure}
+Within the Extension section of the testbed on my host server there is a gallery of before and after the use of the extension screenshots. A number of these can also be found in the images directory of the project deliverable. 
 
 \subsection{Testing iFetch}
-In a similar procedure to testing the IFrame explorer plugin I used the testbed on my host server to form the basis of my testing during development of the iFetch plugin. Once I was satisfied with the performance of the iFetch plugin I began to test it on Internet webpages to identify any bugs and test the scalability of the source fetching functionality of the plugin. An example screenshot of the testing process can be seen in Figure \ref{fig:iFetch_screen}.  
+In a similar procedure to testing the IFrame explorer extension I used the testbed on my host server to form the basis of my testing during development of the iFetch extension. The extension can still be tested on the testbed it should count 5 IFrame objects 4 of which correspond to the adverts placed around the mock article and one which contains the video player. Once I was satisfied with the performance of the iFetch extension I began to test it on Internet webpages to identify any bugs and test the scalability of the source fetching functionality of the extension. An example screenshot of the testing process can be seen in Figure \ref{fig:iFetch_screen}.  
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{iFetch_screen.png}
-    \caption{Using the iFetch plugin on the ars technica webpage}
+    \caption{Using the iFetch extension on the ars technica webpage}
     \label{fig:iFetch_screen}
 \end{figure}
 
-Table \ref{table:3} shows the results of this testing. The measurement criteria used was a comparison between the number of IFrames identified by my plugin, a manual inspection of the HTML source code of the webpage and visually inspecting the webpage. To gain the source code of the webpage I used the ``Developer Tools" of the Google Chrome browser, I then searched through the HTML identifying any IFrame objects or scripts that look to spawn IFrame objects.  As the majority of the content of advertising IFrames is dynamically loaded after the page has been rendered, it was impossible to compare the content of the IFrames returned by both methods. The results of this testing may not stay consistent with future runs as webpage owners increase or decrease the number of IFrames on their site. In future it would be interesting to contrast the number of IFrames presented on a page on a temporal and per users basis to identify any potential correlations. I had looked to automate this process via using a simple Python web scraping script. Unfortunately, the majority of the IFrames are loaded programatically by JavaScript thus, a traditional web scraping script would not return a full set of results. Therefore, the process had to be conducted manually and was time consuming. \\
+Table \ref{table:3} shows the results of this testing. The measurement criteria used was a comparison between the number of IFrames identified by my extension, a manual inspection of the HTML source code of the webpage and visually inspecting the webpage. To gain the source code of the webpage I used the ``Developer Tools" of the Google Chrome browser, I then searched through the HTML identifying any IFrame objects or scripts that look to spawn IFrame objects.  As the majority of the content of advertising IFrames is dynamically loaded after the page has been rendered, it was impossible to compare the content of the IFrames returned by both methods. The results of this testing may not stay consistent with future runs as webpage owners increase or decrease the number of IFrames on their site. In future it would be interesting to contrast the number of IFrames presented on a page on a temporal and per user basis to identify any potential correlations. I had looked to automate this process via using a simple Python web scraping script. Unfortunately, the majority of the IFrames are loaded programatically by JavaScript thus, a traditional web scraping script would not return a full set of results. Therefore, the process had to be conducted manually and was time consuming. \\
 
-The second column of Table \ref{table:3} represents the number of IFrames I identified when manually inspecting the HTML source code of the webpage. Column 3 presents the number of IFrames that I visually identified on the webpage, including advertising IFrames, social media buttons or video players. The final column presents the total number of IFrames found by the iFetch plugin.    
+The second column of Table \ref{table:3} represents the number of IFrames I identified when manually inspecting the HTML source code of the webpage. Column 3 presents the number of IFrames that I visually identified on the webpage, including advertising IFrames, social media buttons or video players. The final column presents the total number of IFrames found by the iFetch extension.    
 
 {
 \begin{table} [H]
@@ -876,12 +880,12 @@ The second column of Table \ref{table:3} represents the number of IFrames I iden
 \url{http://www.skysports.com/} & 12 & 2 & 10\\
 \hline
 \end{tabular}
-\caption{Table shows results of using the iFetch plugin on Internet webpagess.}
+\caption{Table shows results of using the iFetch extension on Internet webpagess.}
 \label{table:3}
 \end{table}
 }
 
-The results of testing were interesting and fully depicts the difficulties of operating in an area as fast changing as targeted advertising. The majority of the results showed that the number of IFrames present on the page source is dramatically less than those returned by iFetch. This would point to numerous IFrames being hidden IFrames which can be utilised for numerous legitimate reasons such as monitoring the success of advertising campaigns or they can be utilised for third party tracking and nefariously used for installation of malware and/or invisibly running scripts on pages. Hidden IFrames are usually inserted programatically via JavaScript. The results of testing also illustrate the effectiveness of the iFetch plugin as it identifies a larger number of IFrames even those that are not present in the HTML code of the source page but are loaded programatically via JavaScript. This will drastically reduce the amount of time spent at the industry expert's organisation inspecting webpages to identify advertising IFrames as iFetch returns all IFrames on a webpage much more quickly so that they can be analysed more efficiently.  \\  
+The results of testing were interesting and fully depicts the difficulties of operating in an area as fast changing as targeted advertising. The majority of the results showed that the number of IFrames present on the page source is dramatically less than those returned by iFetch. This would point to numerous IFrames being hidden IFrames which can be utilised for numerous legitimate reasons such as monitoring the success of advertising campaigns or they can be utilised for third party tracking and nefariously used for installation of malware and/or invisibly running scripts on pages. Hidden IFrames are usually inserted programatically via JavaScript shortly after the page is loaded hence they were not viewable during the source code or visual inspection. The results of testing also illustrate the effectiveness of the iFetch extension as it identifies a larger number of IFrames even those that are not present in the HTML code of the source page but are loaded programatically via JavaScript. This will drastically reduce the amount of time spent at the industry expert's organisation inspecting webpages to identify advertising IFrames as iFetch returns all IFrames on a webpage much more quickly so that they can be analysed more efficiently.  \\  
 
 The exception to the trend of iFetch identifying more IFrames is row 6 which shows the results of the Sky Sports webpage. During inspection of the source code of this webpage there was 12 IFrames identified in contrast to this iFetch returned 10 IFrames. In the future it would be interesting to investigate the reason for this inconsistency, however this would require extensive research outwith the scope of this project. A hypothesis is that some of the IFrames slots are used for advertising but no advertiser can be found to purchase the impression, thus they are empty are removed at the end of the page load. Otherwise the IFrames could be in place on the HTML page which is loaded and then dynamically removed by subsequently loading JavaScript. \\ 
 
@@ -893,23 +897,23 @@ A further result of testing was that the number of IFrames viewable on the page 
 % Article with Colin
 In the future I will look to have a summary of the research of this report presented in the form of a journal article. My supervisor suggested that after the end of the current academic year we could begin drafting the article and this may involve some input from the industry expert. \\
 
-% Improvement to the plugin
-I would like to improve the functionality of the IFrame Explorer plugin to ensure that it can it can deal with overlapping IFrames and that all of its ouput is human readable. This would require a large amount of time and extensive testing on a large number of Internet web pages. It would also be on the presumption that these webpages do not change their formatting. However I feel it would make the plugin significantly more useful and it may allow it to help to detect IFrame stacking fraud in conjunction with other tools that are available. Improved functionality for highly formatted webpages could be achieved by creating a template which is designed specifically for use on one site. The template would be based on the formatting of this site, then when the plugin is executed on this webpage the template would be utilised to inform the positioning of the IFrame source attributes within this web site. To look even further to the future the task of developing these templates could be delegated to an employee of the organisation which the industry expert works for which would allow them to change easily whenever a page updates its formatting. \\
+% Improvement to the extension
+I would like to improve the functionality of the IFrame Explorer extension to ensure that it can it can deal with overlapping IFrames and that all of its ouput is human readable. This would require a large amount of time and extensive testing on a large number of Internet web pages. It would also be on the presumption that these webpages do not change their formatting. However I feel it would make the extension significantly more useful and it may allow it to help to detect IFrame stacking fraud in conjunction with other tools that are available. Improved functionality for highly formatted webpages could be achieved by creating a template which is designed specifically for use on one site. The template would be based on the formatting of this site, then when the extension is executed on this webpage the template would be utilised to inform the positioning of the IFrame source attributes within this web site. To look even further to the future the task of developing these templates could be delegated to an employee of the organisation which the industry expert works for which would allow them to change easily whenever a page updates its formatting. \\
 
 % Javascript placeholder bug
-It is possible to load an IFrame object onto a webpage with no source specified and then later apply content to the IFrame object using JavaScript. This was an area which was unknown to the industry expert and I before we decided to create the deliverable. This effects the performance of the plugin as it results in it displaying the src of an object as \textit{javascript:``"} or sometimes developers have used the cross browser placeholder of \textit{about:blank}. In the future I would look to see if it is possible to find out which JavaScript file set the content of the IFrame and return the name of this script to the user instead of this non descriptive placeholder. \\
+It is possible to load an IFrame object onto a webpage with no source specified and then later apply content to the IFrame object using JavaScript. This was an area which was unknown to the industry expert and I before we decided to create the deliverable. This effects the performance of the IFrame Explorer extension as it results in it displaying the src of an object as \textit{javascript:``"} or sometimes developers have used the cross browser placeholder of \textit{about:blank}. In the future I would look to see if it is possible to find out which JavaScript file set the content of the IFrame and return the name of this script to the user instead of this non descriptive placeholder. \\
 
 % More attractive UI of iFetch / IFrame explorer
-Although the user interface of the iFetch plugin is acceptable if more time was afforded to this project I would liked to have improved the formatting of the popup page by adding a more attractive theme via CSS. This would not impact the functionality of the plugin, it would only make it more aesthetically pleasing. However, for an application that is largely visual I think this is an important improvement that could be made. \\
+Although the user interface of the iFetch extension is acceptable if more time was afforded to this project I would liked to have improved the formatting of the popup page by adding a more attractive theme via CSS. This would not impact the functionality of the extension, it would only make it more aesthetically pleasing. However, for an application that is largely visual I think this is an important improvement that could be made. \\
 
-Finally if more time was available for this project I would like to test the plugins on a much wider sample of Internet sites, as this would illustrate the scalability of the plugin and would identify further areas which require improvement. A good sample to utilise would be the Alexa Top 500 Global sites \url{http://www.alexa.com/topsites}, as these are the 500 most popular webpages on the Internet and are commonly used for testing purposes in research.  
+Finally if more time was available for this project I would like to test the extensions on a much wider sample of Internet sites, as this would illustrate the scalability of the extension and would identify further areas which require improvement. A good sample to utilise would be the Alexa Top 500 Global sites \url{http://www.alexa.com/topsites}, as these are the 500 most popular webpages on the Internet and are commonly used for testing purposes in research.  
 
 %You should evaluate your own work with respect to your original objectives. You should also critically evaluate your work with respect to related work done by others. You should compare and contrast the project to similar work in the public domain, for example as written about in published papers, or as distributed in software available to you. 
 
 \pagebreak
 
 \section{Evaluation and critical appraisal}
-I have met all of the original objectives of my project. It has been difficult at times to meet these aims, however with a large amount of perseverance and research I have developed two plugins which meet the aims of both my project and the industry expert. Had there been more time available for the project I would have liked to have further extended it by meeting the criteria specified within Section \ref{futureWork}, however I feel that as a whole the project has been a success. It has brought to light numerous tactics employed by advertising organisations to track and eventually profile users. Whilst proposing some potential defences to these methods, along with a list of practical advice which could be utilised to limit the effects of tracking from a user's perspective. It has also produced two bespoke plugins which were requested by an industry expert as a means to facilitate faster access to IFrame source and ID attributes. The one area of the project could potentially require improvement is the placement of the IFrame source information on a webpage although as previously mentioned this would require much more time than is afforded to a project of this size. \\
+I have met all of the original objectives of my project. It has been difficult at times to meet these aims, however with a large amount of perseverance and research I have developed two extensions which meet the aims of both my project and the industry expert. Had there been more time available for the project I would have liked to have further extended it by meeting the criteria specified within Section \ref{futureWork}, however I feel that as a whole the project has been a success. It has brought to light numerous tactics employed by advertising organisations to track and eventually profile users. Whilst proposing some potential defences to these methods, along with a list of practical advice which could be utilised to limit the effects of tracking from a user's perspective. It has also produced two bespoke extensions which were requested by an industry expert as a means to facilitate faster access to IFrame source and ID attributes. The one area of the project could potentially require improvement is the placement of the IFrame source information on a webpage although as previously mentioned this would require much more time than is afforded to a project of this size. \\
 
 I feel as though I took a risk by choosing a project that was based in such a secretive and volatile area, however, the benefits have been far-reaching from improving my own knowledge, producing a summary of research in the targeted advertising sector and creating a unique deliverable which met the requirements of the project and an industry expert. The deliverable is a prototype which would ideally be extended by the development team of the industry experts' organisation. The online advertising sector is an area which captivates me and is extremely contemporary as stories related to it reach the news on a weekly basis. It is a somewhat overlooked area as many users will see and interact with adverts but few truly know how the adverts arrive to their browser. This is what I hope my project can expose. \\
 
@@ -924,9 +928,9 @@ There are numerous tools available that will block adverts from appearing on a w
 \section{Future of Tracking}
 With the introduction of mobile-content blockers we have reached a pivotal time in the evolution of the World Wide Web. Desktop ad-blocking mechanisms have been around for a number of the years and are primarily concerned with enhancing privacy. For mobile devices however the other advantages are also highly important. For example bandwidth cost savings (a key issue for mobile data contracts) and faster page load times are crucial for the effective use of mobile web browsing. Whilst a key issue on desktop environments the privacy gain from the lack of tracking is simply a bonus. As the shift from traditional desktop browsing inexorably moves to smartphones losing the ability to target advertising to iOS could become a catalyst for a change in the free content available on the web \parencite{tippingPoint}. These technologies will deeply affect not only digital advertising and its related parties but also the entire web ecosystem. \\
 
-The future of web tracking and targeted advertising is a shift away from the traditional methods of third-party cookies and JavaScript snippets, as these methods simply do not produce reliable results. This paper has discussed in depth the effects of different forms of fingerprinting and how it could potentially be utilised to track users. Without the ability to reach users with advertising on their sites a lot of free-content on web pages may become hidden behind paywalls which are required to ensure the financial viability of web pages. If the Do Not Track (DNT) header had been implemented by governments  and advertising agencies there may not have been an issue with advert blocking however as long as there is a form of ad re-targeting where adverts follow user's around on third party pages this war between privacy and free content will continue.  \\
+The future of web tracking and targeted advertising is a shift away from the traditional methods of third-party cookies and JavaScript snippets, as these methods can no longer produce reliable results. The focus will shift to stateless tracking mechanisms such as the various forms of fingerprinting, which have been discussed in detail within this paper. The impact of an increase in privacy conscious users online privacy is likely to force organisations to adapt and find other ways to track and share data about users. For example Facebook has already introduced an approach called ``Custom Audience  Targeting" (\url{http://on.fb.me/1SnIX7x}) which can be utilised by advertisers to target adverts on Facebook to users whom they have already collected data from. As users become more technologically advanced in their blocking mechanisms techniques including ``universal IDs and IP reconciliation will also become more widespread and important to marketers and content platforms" \parencite{tippingPoint}. \\
 
-This is the tipping point where advertising organisations must begin to re-think their strategies and remove potentially annoying adverts and insidious tracking mechanisms and become more responsible. The impact of an increase in privacy conscious users online privacy is likely to force organisations to adapt and find other ways to track and share data about users. For example Facebook has already introduced an approach called ``Custom Audience  Targeting" (\url{http://on.fb.me/1SnIX7x}) which can be utilised by advertisers to target adverts on Facebook to users whom they have already collected data from. As users become more technologically advanced in their blocking mechanisms techniques including ``universal IDs and IP reconciliation will also become more widespread and important to marketers and content platform" \parencite{tippingPoint}.
+Without the ability to reach users with advertising on their sites a lot of free-content on web pages may become hidden behind paywalls which are required to ensure the financial viability of web pages. If the Do Not Track (DNT) header had been implemented by governments  and advertising agencies there may not have been an issue with advert blocking however as long as there is a form of ad re-targeting where adverts follow user's around on third party pages this war between privacy and free content will continue. This is the tipping point where advertising organisations must begin to re-think their strategies and remove potentially annoying adverts and insidious tracking mechanisms and become more responsible. 
 
 \pagebreak
 
@@ -943,7 +947,7 @@ In comparison to the wealth of information and free content available on the web
 \section{Appendix A: Testing summary} \label{testSummary}
 
 \subsection{IFrame Explorer Testing Table}  \label{iETesting}
-Table \ref{table:4} below shows the performance of the IFrame Explorer plugin on a wide range of popular Internet sites. All of the issues in the Notes column relate to formatting or styling issues. In the Sky Sports and Yahoo webpages the boxes for the IFrames were too small such that they looked like a single red line, however with the use of developer tools I could see the correct information of the advert was being displayed within the box and that it was merely a formatting bug which was stopping it from displaying correctly. These formatting errors are my number one priority to improve the plugin in any future work. 
+Table \ref{table:4} below shows the performance of the IFrame Explorer extension on a wide range of popular Internet sites. All of the issues in the Notes column relate to formatting or styling issues. In the Sky Sports and Yahoo webpages the boxes for the IFrames were too small such that they looked like a single red line, however with the use of developer tools I could see the correct information of the advert was being displayed within the box and that it was merely a formatting bug which was stopping it from displaying correctly. These formatting errors are my number one priority to improve the extension in any future work. 
 
 {
 \begin{table} [H]
@@ -953,7 +957,7 @@ Table \ref{table:4} below shows the performance of the IFrame Explorer plugin on
 \hline
 \multicolumn{3}{|c|}{\textbf{Internet Testing Results of IFrame Explorer}} \\
 \hline
-\textbf{URL} & \textbf{Plugin Performance} & \textbf{Notes} \\
+\textbf{URL} & \textbf{extension Performance} & \textbf{Notes} \\
 \hline
 \url{www.theguardian.com/uk} & Good & Overlap Menu bar \\
 \hline
@@ -980,13 +984,13 @@ Table \ref{table:4} below shows the performance of the IFrame Explorer plugin on
 \url{http://www.imdb.com/} & Good & Minor formatting issues \\
 \hline
 \end{tabular}
-\caption{Table shows results of using the IFrame Explorer plugin on Internet webpages. The potential scores are: Bad, Poor, Fair, Good, Excellent}
+\caption{Table shows results of using the IFrame Explorer extension on Internet webpages. The potential scores are: Bad, Poor, Fair, Good, Excellent}
 \label{table:4}
 \end{table}
 }
 
 \subsection{iFetch Testing Table} \label{iFetchTesting}
-A detailed table below shows the performance of the iFetch plugin on a wide range of popular Internet sites. 
+A detailed table below shows the performance of the iFetch extension on a wide range of popular Internet sites. 
 
 {
 \begin{table} [H]
@@ -1023,18 +1027,26 @@ A detailed table below shows the performance of the iFetch plugin on a wide rang
 \url{http://www.imdb.com/} & 7 & 5 & 7 \\
 \hline
 \end{tabular}
-\caption{Table shows results of using the iFetch plugin on Internet webpagess.}
+\caption{Table shows results of using the iFetch extension on Internet webpagess.}
 \label{table:5}
 \end{table}
 }
 
 \section{Appendix C: User manual} \label{userman}
 
-\subsection{Installing a plugin} \label{installPlugin}
-To install a plugin in Google Chrome follow the steps below. Note a box with a red border in an image indicates the option to select. 
+\subsection{Installing a extension} \label{installPlugin}
+To install an extension in Google Chrome follow the steps below. Note a box with a red border in an image indicates the option to select. 
 
 \begin{enumerate}
     \item Open the Google Chrome browser, and click the three horizontal bars menu. Select the \textbf{Settings} option. 
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.75\textwidth]{chrome_setup_settings.png}
+        \caption{The settings option is highlighted in blue}
+        \label{fig:chrome_setup_settings}
+    \end{figure}
+    
     \item From within this menu select the \textbf{Extensions} option on the left hand menu.
     
     \begin{figure}[H]
@@ -1056,21 +1068,21 @@ To install a plugin in Google Chrome follow the steps below. Note a box with a r
     \end{figure}
     
     \begin{enumerate}
-        \item In the popup menu, select the directory which contains the plugin e.g. IFrame Explorer or iFetch. 
+        \item In the popup menu, select the directory which contains the extension e.g. IFrame Explorer or iFetch. 
         \item The extension should then appear including its title and a brief description of its function.
         
         \begin{figure}[H]
             \centering
-            \includegraphics[width=0.75\textwidth]{loaded_extensions.png}
+            \includegraphics[width=0.75\textwidth]{extensions_installed.png}
             \caption{Both of the extensions loaded}
-            \label{fig:loaded_extensions}
+            \label{fig:extensions_installed}
         \end{figure}
         
     \end{enumerate}
 \end{enumerate}
 
-\subsection{How to use the plugins} \label{userGuide}
-Both plugins have a simple and intuitive User Interface (UI). They each have a Browser Action icon, which is placed to the upper right corner of the Google Chrome Browser next to the Menu button, this is shown in Figure \ref{fig:logos}. Upon pressing these icons the functionality of the relevant plugin will execute. \textbf{Note} the IFrame Explorer will replace the content of the IFrame objects with its source attributes therefore they will no longer be on the page if you execute the iFetch plugin. Therefore, if you want to check the number of IFrames or their source execute the iFetch plugin before the IFrame explorer.  
+\subsection{How to use the extensions} \label{userGuide}
+Both extensions have a simple and intuitive User Interface (UI). They each have a Browser Action icon, which is placed to the upper right corner of the Google Chrome Browser next to the Menu button, this is shown in Figure \ref{fig:logos}. Upon pressing these icons the functionality of the relevant extension will execute. \textbf{Note} the IFrame Explorer will replace the content of the IFrame objects with its source attributes therefore they will no longer be on the page if you execute the iFetch extension. Therefore, if you want to check the number of IFrames or their source execute the iFetch extension before the IFrame explorer.  
 
 \begin{figure}[H]
     \centering
