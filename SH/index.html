@@ -45,7 +45,7 @@
                     <li><a href="#video" class="section-scroll">Video Demo</a></li>
                     <li><a href="#about" class="section-scroll">About</a></li>
                     <li><a href="#research" class="section-scroll">Research</a></li>
-                    <li><a href="#plugin" class="section-scroll">Plugin</a></li>
+                    <li><a href="#plugin" class="section-scroll">Extensions</a></li>
                     <li><a href="#testing" class="section-scroll">Testbed</a></li>
                 </ul>
             </div>
@@ -64,7 +64,7 @@
                 <div class="home-title-size-4 font-alt mb-40">
                     Made by Michael Sime
                 </div>
-                <a href="#testing" class="section-scroll btn btn-border-w btn-round">Test the plugin</a>
+                <a href="#testing" class="section-scroll btn btn-border-w btn-round">Test the Extensions</a>
 
             </div>
         </div>
@@ -72,13 +72,12 @@
 
     <!-- Main -->
     <div class="main">
-
         <!-- Video -->
         <section id="video" class="module-video video-full-height">
             <div class="video-caption">
            <!-- <div class="module module-player">  -->
                 <!-- Youtube player start-->
-                <div class="video-player" data-property="{videoURL:'https://www.youtube.com/watch?v=EnqLi65ONbQ', containment:'.module-video', startAt:0, mute:false, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, optimizeDisplay:true, ratio:'auto', vol:25}"></div>
+                <div class="video-player" data-property="{videoURL:'https://www.youtube.com/watch?v=EnqLi65ONbQ', containment:'.module-video', startAt:0, mute:false, autoPlay:true, loop:true, opacity:1, showControls:false, showYTLogo:false, optimizeDisplay:true, ratio:'auto', vol:0}"></div>
                 <!-- Youtube player end -->
 
                 <!-- Youtube controls start-->
@@ -107,8 +106,8 @@
                 </div>
                 <div class="row row-space">
                     <div class="col-sm-8 col-sm-offset-2 align-center">
-                         <p> This is a Mockup of a news webpage to show the ability of an IFrame exploration Google Chrome Extension. </p> 
-                         <p> Please ensure that you have installed the plugin, instructions of how to install the plugin can be found in the User Manual section of the final report or instructions from Google can be found <a target="_blank"  href="https://developer.chrome.com/extensions/getstarted#unpacked">from their developer webpages</a>. 
+                         <p> This is a Mockup of a news webpage to show the ability of a framework of IFrame exploration Google Chrome Extensions. </p> 
+                         <p> Please ensure that you have installed the extension, instructions of how to install the extension can be found in the User Manual section of the final report or instructions from Google can be found <a target="_blank"  href="https://developer.chrome.com/extensions/getstarted#unpacked">from their developer webpages</a>. 
                     </div>
                 </div>
                 <div class="row">
@@ -118,7 +117,7 @@
                             <span class="icon-magnifying-glass"></span>
                         </div>
                         <h3 class="features-title font-alt">Explorartion of IFrames</h3>
-                        This plugin aims to allow users to find out where adverts come from. 
+                        These extensions aim to allow users to discover the attributes of IFrame objects. 
                     </div>
                 </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
@@ -127,7 +126,7 @@
                                 <span class="icon-clock"></span>
                             </div>
                             <h3 class="features-title font-alt">Time Saving</h3>
-                            This plugin looks to save users time by revealing the source of all IFrames with the click of one button.
+                            These extensions look to save users time by revealing the source of all IFrames with the click of one button.
                         </div>
                     </div>
                     <div class="col-sm-4 col-md-4 col-lg-4">
@@ -136,7 +135,7 @@
                                 <span class="icon-scope"></span>
                             </div>
                             <h3 class="features-title font-alt">Find out who is targetting you</h3>
-                            The source of adverts may lead users to find out who is tracking them.
+                            Future extensions could identify the source of adverts which may lead users to find out who is tracking them.
                         </div>
                     </div>
                 </div>
@@ -145,7 +144,6 @@
 
         <!-- Divider -->
         <hr class="section-divider">
-
 
         <!-- Research -->
         <section id="research" class="module module-research">
@@ -170,44 +168,40 @@
         <section id="plugin" class="module module-plugin">
             <!-- Text -->
             <div class="container">
+            	<div class="row">
+	               <div class="col-sm-8 col-sm-offset-2">
+	                    <h2 class="module-title font-alt"> Extensions</h2>
+	                </div>
+                </div>
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <h2 class="module-title font-alt">Plugin</h2>
+	               <div class="col-sm-8 col-sm-offset-2">
+	                    <h2 class="module-sub-title font-alt"> iFetch Extension</h2>
+	                </div>
+                </div>
+                <div class="row">
+	                <div class="col-sm-8 col-sm-offset-2 align-center">
+	            		<p> The extensions were created as part of my CS4099 Senior Honours Project, in conjunction with an industry expert. The iFetch extension is used to fetch the source of all IFrame objects on a web page and then present them in a readable manner. In combination with this search functionality, has been implemented to facilitate easier access when someone is looking for a specific IFrame. There are also two copy icons which can be used to copy all of the IFrames within a page or the search results to a user's clipboard. </p>
+	            		<img class="small-space-item" src="assets/images/iFetch_impl.png" alt="">
+	                </div>
+	            </div>
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 small-space">
+                        <h2 class="module-sub-title font-alt">IFrame Explorer Extension</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 align-center">
-                         <p> The plugin was created as part of my CS4099 Senior Honours Project. In conjunction with an industry expert, the plugin can be used to replace the image of an advert with its id and src attributes. This poses several advantages for those working in the advertising field by vastly reducing the time requried from them to open up their browsers development tools and search for an IFrame object to find out where it is coming from. The plugin explores the IFrame source in a visual manner with little installation necessary for a user. Along with the benefits for those in the industry, it could be used by an eager everyday user to indentify where these adverts are coming from and in conjunction who is tracking them for advertising purposes. This webpage includes a Testing section in which I have simulated an online news article, which frequently contain numerous adverts, the purpose of this testbed is to show the potential of the plugin in a controlled environment simulation. </p>
+                         <p> The IFrame Explorer extension can be used to replace the image of an advert with its id and src attributes. This poses several advantages for those working in the advertising field by vastly reducing the time requried for them to open up their browsers development tools and search for an IFrame object to find out its source attributes. The extension explores the IFrame source in a visual manner with little installation necessary for a user. Along with the benefits for those in the industry, it could be used by an eager everyday user to indentify the source of IFrame objects. Future work for this extensions looks to identify were adverts are coming from and in conjunction who is tracking a user for advertising purposes. This webpage includes a Testing section in which I have simulated an online news article, which frequently contain numerous adverts, the purpose of this testbed is to show the potential of the extension in a controlled environment simulation. <br> <br>
+
+                         Below I have collected a gallery of images generated during testing of the IFrame Explorer extension. The gallery shows images without the extension enabled (left), images with the extension enabled before usage (centre) and images once the extension has been invoked (right). </p>
                     </div>
                 </div>
             </div>
 
             <!-- Gallery of testing -->
 
-            <div class="container">
-                <!-- Header start -->
-                <!-- <div class="row">
-                    <div class="col-sm-2 col-sm-offset-5">
-                        <div class="alt-module-subtitle">
-                            <span class="holder-w"></span>
-                            <h5 class="font-serif">Examples of</h5>
-                            <span class="holder-w"></span>
-                        </div>
-                    </div>
-                </div> --> <!-- .row -->
-
-             
-                <div class="row">
-                    <div class="col-sm-8-offset-2 col-md-8-offset-2 col-lg-8-offset-2">
-                        <div class="features-item">
-                            <div class="features-icon">
-                                <span class="icon-pictures"></span>
-                            </div>
-                            <h3 class="module-sub-title font-alt">Testing in the wild</h3>
-                    </div>
-                </div>  <!-- .row -->
-
-                <div class="row multi-columns-row">
+            <div class="container">     
+                <div class="row multi-columns-row small-space-item">
 
                     <!-- Gallery item start -->
                     <div class="col-sm-4 col-md-4 col-lg-4">
@@ -309,6 +303,101 @@
                         </div>
                     </div>
 
+                    <!-- Gallery item start -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <a href="assets/images/testing_gallery/express_after_plugin.png" class="gallery" title="">
+                                    <img src="assets/images/testing_gallery/indp_before_no_plugin.png" alt="">
+                                    <div class="gallery-caption">
+                                        <div class="gallery-icon">
+                                            <span class="icon-magnifying-glass"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery item start -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <a href="assets/images/testing_gallery/express_after_plugin.png" class="gallery" title="">
+                                    <img src="assets/images/testing_gallery/indp_before_plugin.png" alt="">
+                                    <div class="gallery-caption">
+                                        <div class="gallery-icon">
+                                            <span class="icon-magnifying-glass"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery item start -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <a href="assets/images/testing_gallery/express_after_plugin.png" class="gallery" title="">
+                                    <img src="assets/images/testing_gallery/indp_after_plugin.png" alt="">
+                                    <div class="gallery-caption">
+                                        <div class="gallery-icon">
+                                            <span class="icon-magnifying-glass"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+            		<!-- Gallery item start -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <a href="assets/images/testing_gallery/express_after_plugin.png" class="gallery" title="">
+                                    <img src="assets/images/testing_gallery/tech_before_no_plugin.png" alt="">
+                                    <div class="gallery-caption">
+                                        <div class="gallery-icon">
+                                            <span class="icon-magnifying-glass"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery item start -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <a href="assets/images/testing_gallery/express_after_plugin.png" class="gallery" title="">
+                                    <img src="assets/images/testing_gallery/tech_before_plugin.png" alt="">
+                                    <div class="gallery-caption">
+                                        <div class="gallery-icon">
+                                            <span class="icon-magnifying-glass"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gallery item start -->
+                    <div class="col-sm-4 col-md-4 col-lg-4">
+                        <div class="gallery-item">
+                            <div class="gallery-image">
+                                <a href="assets/images/testing_gallery/express_after_plugin.png" class="gallery" title="">
+                                    <img src="assets/images/testing_gallery/tech_after_plugin.png" alt="">
+                                    <div class="gallery-caption">
+                                        <div class="gallery-icon">
+                                            <span class="icon-magnifying-glass"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
 
             </div> <!-- End of Gallery Container -->
 
@@ -361,7 +450,6 @@
                                 <iframe src="banner_iframe.html" scrolling="no" class="module-testing-ad-bottom"> <p>Your browser does not support iframes.</p> </iframe>
                       </div>
                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3">     
-                    <!-- Side Ad Mockup onLoad="autoResize(this);" -->
                         <iframe src="assets/images/side_ad.png" class="module-testing-ad-left" scrolling="no"> <p>Your browser does not support iframes.</p> </iframe>
                     </div>    
                 </div>
@@ -396,7 +484,7 @@
     <script src="assets/js/smoothscroll.js" type="text/javascript"></script>
     <script src="assets/js/jquery.mb.YTPlayer.min.js"></script>
     <script src="assets/js/jquery.magnific-popup.js"></script>
-
+    
     <!-- Needed to use auto-height -->
     <script src="assets/js/browser-plugin-feature.js" type="text/javascript"></script>
     <script src="assets/js/jquery-iframe-auto-height.js" type="text/javascript"></script>

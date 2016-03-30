@@ -58,7 +58,6 @@ chrome.runtime.onMessage.addListener(function(request, sender) {
     // Regex to extract IFrame from full HTML src
     var iframes = request.source.match(/(<iframe.*?>.*?<\/iframe>)/g);
     
-
     if(iframes == null){
       // If there are no IFrames
       iframeCount.innerText += "Sorry no iFrames were found on this page!";

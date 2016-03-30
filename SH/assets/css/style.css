@@ -4,10 +4,23 @@
 /* General 
 /**********************************************/
 
-html {
+/*html {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	-ms-overflow-style: scrollbar;
+	margin-right: 0 !important;
+    overflow: visible !important;
+}*/
+
+html,body
+{
+	overflow-y: scroll;
+	overflow-x: hidden;
+	/*-ms-overflow-style: scrollbar;*/
+    /*width: 100%;*/
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
 
 body {
@@ -130,6 +143,10 @@ a:focus {
 	letter-spacing: 2px;
 }
 
+.align-center {
+	text-align: center;
+}
+
 .module-title {
 	position: relative;
 	letter-spacing: 4px;
@@ -146,6 +163,16 @@ a:focus {
 	text-align: center;
 	font-weight: 400;
 	font-size: 22px;
+	color: white;
+	margin-bottom: 50px;
+}
+
+.module-sub-sub-title {
+	position: relative;
+	letter-spacing: 4px;
+	text-align: center;
+	font-weight: 400;
+	font-size: 18px;
 	color: white;
 	margin-bottom: 50px;
 }
@@ -487,6 +514,7 @@ a.light-scheme{
 	color:white;
 }
 
+
 /**********************************************/
 /* Plugin Section
 /**********************************************/
@@ -503,6 +531,15 @@ a.light-scheme{
 .icon-pictures{
 	color: white;
 }
+
+.small-space {
+	margin-top: 50px;
+}
+
+.small-space-item {
+	margin-top: 20px;
+}
+
 
 /**********************************************/
 /* Plugin Gallery Section
